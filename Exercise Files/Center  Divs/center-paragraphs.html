@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Center Alignment with CSS!</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="_css/base.css" rel="stylesheet" type="text/css" media="screen">
+    <style>
+        p{
+            background-color: cornflowerblue;
+            color: cornsilk;
+        }
+
+        .method_1 {
+            box-sizing: border-box;
+            padding: 20px 0;
+            text-align: center;
+            border: solid 1px black;
+            font-weight: 200;
+            font-size: 16px;
+            display: block;
+            margin: 2px auto;
+            width: 50%;
+
+        }
+
+        .method_2 {
+            box-sizing: border-box;
+            padding: 20px 0;
+            text-align: center;
+            border: solid 1px black;
+            font-weight: 200;
+            font-size: 16px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .method_3 {
+            box-sizing: border-box;
+            padding: 20px 0;
+            text-align: center;
+            border: solid 1px black;
+            font-weight: 200;
+            font-size: 16px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Center Alignment with CSS!</h1>
+    </header>
+    <main>
+        <p class="method_1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi id quia voluptatum eveniet reprehenderit, aliquid neque alias quisquam quod libero cupiditate dolorem tempora quaerat ipsam dignissimos! Iste ducimus, voluptatibus quasi.</p>
+        <p class="method_2">Alias corporis atque, repellendus vel unde quidem adipisci tempora neque officiis, odit necessitatibus voluptates nulla ipsum voluptate. Odio facilis illum neque. Qui, eaque nemo soluta totam, nobis cupiditate aut nesciunt!</p>
+        <p class="method_3">Nam dolorum officiis, similique totam enim laborum, blanditiis mollitia. Temporibus animi ratione eveniet, earum quam numquam in labore voluptatem quidem reiciendis, odio neque iste consequuntur quos nisi, accusamus maxime possimus.</p>
+    </main>    
+</body>
+</html>
+
