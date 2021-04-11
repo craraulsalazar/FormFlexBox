@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTS Bubble</title>
+
+    <style>
+
+            .bubble-container {
+                line-height: 1.2;
+                margin-right: -0.1em;
+                
+            }
+
+            .bubble-section {
+                background: #F6DDCE;
+                margin-bottom: 1em;
+                padding: 5px;
+                margin-right: 0.1em;
+            }
+
+            /*
+            .bubble-section:nth-child(1) {
+                width: 82%;
+            }
+
+            .bubble-section:nth-child(2) {
+                width: 14%;
+            }
+            */
+
+            .bubble-section > .groups ul,
+            .bubble-section > .groups ul
+             {
+                    list-style: none;
+                    margin: 0.5em 1em 0 0.5em;
+                    padding: 0;
+
+            }
+
+            .bubble-section > .groups li,
+            .bubble-section > .groups li  
+            {
+                margin-bottom: 0.5em;  
+            }
+
+            .bubble-section > figure {
+                margin: 0;
+            }
+
+            .bubble-section img {
+                width: 130px;
+                height: 130px;
+            }
+
+            .groups {
+                border-radius: 10px;
+                border: 2px solid #000;
+                
+            }
+
+            .groups > .group-label {
+                
+                 border-top-left-radius: 10px;
+                 border-bottom-left-radius: 10px;
+                 background-color: #c9d2fb;  
+                 
+            }
+
+            .groups > .group-details img {
+                width: 15px;
+                height: 15px ;
+            }
+
+            /* flex it */    
+            .bubble-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content:left;
+            }
+
+            
+            .bubble-section > .groups {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+
+            /*
+            .groups > .group-label {
+                flex: 1 0 130px;
+                max-width: 130px;  
+            }
+
+            
+            .groups > .group-details {
+                flex: 2 0 500px;
+            }
+            */
+
+            
+
+    </style>
+
+
+</head>
+<body>
+    
+<div class="bubble-container">
+
+    <div class="bubble-section">
+
+        <div class="groups">
+
+            <div class="group-label">
+                <ul class="label">
+                    <li>Student Name:</li>
+                    <li>Student Number</li>
+                    <li>Program Details</li>
+                </ul>
+    
+            </div>
+            <div class="group-details">
+                <ul class="details">
+                    <li>Jennins Dana</li>
+                    <li>8882771</li>
+                    <li>1943 - Nursing - BScN(McMaster) - Year 1 - Cohort Fall 2020A - Doon - 1943 - Nursing - BScN(McMaster) - Year 1 - Cohort Fall 2020A - Doon </li>
+                    <li><span> >> Completion Status: Fall 2020 <img src="../common/HSTrax/notice.png" alt="Not Applicable" title="Not Applicable"> 
+                        winter 2020 <img  src="../common/HSTrax/complete.gif" alt="Not Applicable" title="Not Applicable" >
+                        Spring 2021 <img  src="../common/HSTrax/incomplete.gif" alt="Not Applicable" title="Not Applicable" >
+                    </span>
+                    </li>
+                    <li>>> Consent Completion Status: Consent Forms Completed (2020)</li>
+                </ul>
+    
+            </div>
+
+        </div>
+        
+    </div>
+    
+    <div class="bubble-section">
+        
+        <figure>
+            <img src="../common/cardimages/cropped/dinosaur-jacket.jpg" alt="A dinosaur wearing an aluminium jacket">
+        </figure>
+
+    </div>
+
+</div>
+
+</body>
+</html>
