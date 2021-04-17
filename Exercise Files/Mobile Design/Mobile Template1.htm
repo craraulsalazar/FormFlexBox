@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Mobile Design #1</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="nav-social.css">
+    
+</head>
+
+<style>
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    :root {
+        --clr-text: rgb(99, 87, 87);
+    }
+
+    body {
+        margin: 0.5em;
+        line-height: 1.5em ;
+        font-family: sans-serif;
+        color: var(--clr-text);
+    }
+
+    img {
+        /* this property make any large image fit exactly the same size in a responsive size*/
+        max-width: 100%;
+    }
+
+    h2 {
+        text-transform: uppercase;
+        margin: 0;
+        font-size: clamp(1.5rem, 10vw,3rem);
+        margin-bottom: 0.2em;
+    }
+
+    header, nav {
+        margin: 0px;
+    }
+
+    header {
+        margin-bottom: 1em;
+    }
+
+    /*
+    nav {
+        
+      
+            use this code to create an outline around your element
+        outline: 2px solid red;
+        
+
+    }
+    */
+
+    nav ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            /* align-items: center;             */
+            justify-content:space-evenly;
+        }
+
+    nav li {
+        list-style: none;
+        padding: 10px;
+        margin: 0 10px;
+        
+    }
+    
+    li a {
+        text-decoration: none;
+        text-transform: capitalize;
+        /* font-size: clamp(1rem, 10vw,1.5rem); */
+        font-size: clamp(1rem, 10vw,1.2rem);
+    }
+
+</style>
+
+<body>
+    <div  class="main-container">
+        <header>
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+        <main>
+            <section>
+                <article>
+                    <h2>Main Story</h2>
+                    <img src="images/contemporary-homes-designs-9.jpg" alt="">
+
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque ipsum ab, laboriosam rerum ad deleniti, similique veritatis dolore consectetur laborum id culpa! Doloribus voluptatem earum impedit assumenda itaque numquam dolores architecto nobis illum recusandae reiciendis nostrum consectetur natus labore tempore quos, ex quaerat voluptates porro reprehenderit consequuntur aliquam eius officiis.
+                    </p>
+                </article>
+    
+                <article>
+                    <h2>Another Story</h2>
+                    <img src="images/82be2989-c0d6-479d-b0c5-a34bdefeef13-Hamptons house exterior.jpg" alt="">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae error ipsa sint! Quae, qui eius. At eveniet commodi accusamus optio!
+                    </p>
+                </article>
+            </section>
+        </main>
+        <footer>
+
+                <nav id="social-menu" class="social-menu" role="navigation">
+                    <ul>
+                        <li><a href="http://twitter.com"><span class="screen-reader-text">Twitter</span></a></li>
+                        <li><a href="http://facebook.com"><span class="screen-reader-text">Facebook</span></a></li>
+                        <li><a href="http://linkedin.com"><span class="screen-reader-text">LinkedIn</span></a></li>
+                        <li><a href="http://youtube.com"><span class="screen-reader-text">YouTube</span></a></li>
+                        <li><a href="http://instagram.com"><span class="screen-reader-text">Instagram</span></a></li>
+                    </ul>
+                </nav><!-- .social-menu -->
+
+
+        </footer>
+
+    </div>
+
+</body>
+</html>

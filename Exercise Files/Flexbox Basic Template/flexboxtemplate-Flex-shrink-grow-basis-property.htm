@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Flex Template</title>
+
+    <link rel="stylesheet" href="flexboxbackground_styles.css">
+    
+
+    <style>
+    
+        .flexbox-container {
+            display: flex;
+        }
+
+        .flexbox-item-1 {
+            /* the default is 1, always shink */
+            min-height: 100px;
+            flex-shrink: 0;
+        }
+
+        .flexbox-item-2 {
+            /* the default is 0, don't grow, if set to 1, grow and take all available space  
+                this item is set to be exactly 3 times bigger than item 3
+            */
+            flex-grow: 3;
+            /* override the width:200px in .flexbox-item class and starts from 0px */
+            flex-basis: 0;
+        }
+
+        .flexbox-item-3 
+        {
+           flex-grow: 1;
+
+           /* override the width:300px in .flexbox-item class and starts from 0px */
+           flex-basis: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="flexbox-container">
+        <div class="flexbox-item flexbox-item-1"></div>
+        <div class="flexbox-item flexbox-item-2"></div>
+        <div class="flexbox-item flexbox-item-3"></div>
+        <div class="axis main-axis"></div>
+        <div class="axis cross-axis"></div>
+    </div>
+
+</body>
+</html>

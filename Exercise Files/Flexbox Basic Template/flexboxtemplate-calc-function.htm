@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Calc funtion - How To</title>
+    <style>
+        :root{
+            --hue: 180;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .container {
+            background-color: red;
+            height: 100px;
+            width: 300px;
+            width: calc(100px + 600px);
+            /* this calculation will center the div horizontally and will distribute 50 pixels in the left and right */
+            width: calc(100% - 100px);
+            margin: 0 auto;
+
+        }
+
+        .primary {
+            background-color: hsl(var(--hue), 100%, 50%);
+            
+            height: 50px;
+        }
+
+        .opposite {
+            background-color: hsl(calc(var(--hue) - 180), 100%, 50%);
+            
+            height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container"></div>
+    <button class="primary">Primary Color</button>
+    <button class="opposite">Opposite Color</button>
+
+</body>
+</html>

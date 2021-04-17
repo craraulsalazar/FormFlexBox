@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All CSS Selectors</title>
+
+    <style>
+
+        /*
+        universal selector
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin-top: 0;
+        }
+
+        class selector
+        .mynewclass { ....}
+
+        id selector
+        #myelementId { .....}
+
+        */
+
+        /* any span inside the p tag, direct or indirect*/
+        p.every_child span {
+            background-color: red;
+        }
+
+        /* direct child */        
+        p.direct_child_only > span {
+            background-color:blue;
+            color: white;
+        }
+
+        span.iam_grand_child {
+            background-color:burlywood;
+            color:black;
+        }
+
+        /* general sibling selectors*/
+        /* Select all siblings after the class specified */
+        li.sibling_item2 ~ li {
+            background-color: red;
+            color: white;
+
+        }
+
+        /* Select only the one sibling directly after the class specified 
+            adjacent sibling selector
+        */
+        li.direct_sibling + li {
+            background-color: red;
+            color: white;
+
+        }
+
+        /* pseudo class selectors*/
+        ul.using_pseudo_classes li:hover {
+            background-color: red;
+            color: white;
+        }
+
+        input:focus {
+            border-style: groove;
+            border-width: 1px;
+        }
+
+        input:checked {
+            border-style: groove;
+            border-width: 1px;
+        }
+
+        input:disabled {
+            border-style: groove;
+            border-width: 1px;
+        }
+
+        /* position selectors */
+        ul.using_pseudo_position_classes li:first-child {
+            background-color: red;
+            color: white;
+        }
+
+        ul.using_pseudo_position_classes li:last-child {
+            background-color: green;
+            color: white;
+        }
+
+        ul.using_pseudo_position_classes li:nth-child(4) {
+            background-color:hotpink;
+            color: white;
+        }
+
+        ul.using_pseudo_position_classes_every_second_element li:nth-child(2n) {
+            background-color:red;
+            color: white;
+        }
+
+        ul.using_pseudo_position_classes_every_third_element li:nth-child(3n) {
+            background-color: green;
+            color: white;
+        }
+
+        ul.using_pseudo_position_classes_every_other_element li:nth-child(2n - 1) {
+            background-color:magenta;
+            color: white;
+        }
+
+        ul.using_only_child span:only-child {
+            background-color:red;
+            color: white;
+        }
+
+        ul.using_only_child span:first-of-type {
+            background-color:red;
+            color: white;
+        }
+    /*
+        ul.using_only_child span:last-of-type {
+            background-color:red;
+            color: white;
+        }
+
+        ul.using_only_child span:nth-last-of-type(4) {
+            background-color:red;
+            color: white;
+        }
+
+        ul.using_only_child span:only-of-type {
+            background-color:red;
+            color: white;
+        }
+        */
+
+        ul.using_pseudo_class_NOT li:not(.greenandred) {
+            background-color:rgb(240, 255, 105);
+            color: blue;
+        }
+
+        /* pseudo elements */
+        
+        ul.using_pseudo_element_before li::before {
+            content: 'Before  ';
+            background-color:rgb(240, 255, 105);
+        }
+
+        ul.using_pseudo_element_before li::after {
+            content: 'After  ';
+            background-color:chocolate;
+        }
+
+        /* attribute selectors */
+        ul.using_attrb-selector [data-red] {
+            background-color:chocolate;
+        }
+
+        ul.using_attrb-selector [data-green] {
+            background-color: rgb(94, 155, 94);
+        }
+
+        ul.using_attrb-selector [data-yellow = "false"] {
+            background-color:yellow;
+        }
+
+        ul.using_attrb-selector [data-yellow = "false"] {
+            background-color:yellow;
+        }
+
+        ul.using_attrb-selector [data-yellow = "false"] {
+            background-color:yellow;
+        }
+
+        ul.using_attrb-selector [data-start-with^= "a"] {
+            background-color:yellow;
+        }
+        ul.using_attrb-selector [data-end-with$= "c"] {
+            background-color: red;
+        }
+        ul.using_attrb-selector [data-anywhere*= "u"] {
+            background-color: green;
+        }
+
+        /* input attribute selectors */
+        a[target] {
+            color: blue;
+        }
+        a[href] {
+            color: blue;
+        }
+        a[href="about.html"] {
+            color: blue;
+        }
+
+        /* very specific */
+        a[class|="link"] {
+            color: blue;
+        }
+
+        /* more forgiving */
+        a[href^="https"] {
+            color: blue;
+        }
+        a[href*="google"] {
+            color: blue;
+        }
+        a[href$=".ca"] {
+            color: blue;
+        }
+        a[target="_blank"]::after {
+            content: url('//unsplash.it/30/30');
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        form {
+            width: 50%;
+            height: 200px;
+        }
+
+        input {
+            width: 200px;
+        }
+
+        input:focus {
+            outline: none;
+            border: 3px solid #ddd;
+        }
+
+        /* for Chrome and Firefox */
+        ::placeholder {
+            color: red;
+            opacity: 1;
+        }
+
+        /* for IE11 */
+        :-ms-input-placeholder {
+            color: red;
+            opacity: 1;
+        }
+
+        /* for Edge */
+        ::-ms-input-placeholder {
+            color: red;
+            opacity: 1;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+
+    <!-- Learn Every CSS Selector In 20 Minutes
+    https://www.youtube.com/watch?v=l1mER1bV0N0&t=904s 
+
+    Step up your CSS game using these selectors and combinators
+    https://www.youtube.com/watch?v=Bcr70LIJcOk
+    -->
+
+    <h1>What is Lorem Ipsum?</h1>
+    <p class="every_child">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        <span>Lorem Ipsum has been the industry's standard <span>dummy text</span> ever since</span> the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+    <p class="direct_child_only">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        <span>Lorem Ipsum has been the industry's <span class="iam_grand_child">standard dummy</span> text ever since</span> the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    
+
+    <ul class="parentUl">
+        <li>Item #1</li>
+        <li class="sibling_item2">Item #2</li>
+        <li>Item #3</li>
+        <li>Item #4</li>
+    </ul>
+
+    <ul class="parentUl">
+        <li>Item #1</li>
+        <li class="direct_sibling">Item #2</li>
+        <li>Item #3</li>
+        <li>Item #4</li>
+    </ul>
+
+    <ul class="using_pseudo_classes">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+        <li>Item #4</li>
+    </ul>
+
+    <ul class="using_pseudo_position_classes">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+        <li>Item #4</li>
+        <li>Item #5</li>
+        <li>Item #6</li>
+        <li>Item #7</li>
+        <li>Item #8</li>
+    </ul>
+
+    <ul class="using_pseudo_position_classes_every_second_element">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+        <li>Item #4</li>
+        <li>Item #5</li>
+        <li>Item #6</li>
+        <li>Item #7</li>
+        <li>Item #8</li>
+    </ul>
+
+    <ul class="using_pseudo_position_classes_every_third_element">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+        <li>Item #4</li>
+        <li>Item #5</li>
+        <li>Item #6</li>
+        <li>Item #7</li>
+        <li>Item #8</li>
+    </ul>
+
+    <ul class="using_pseudo_position_classes_every_other_element">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+        <li>Item #4</li>
+        <li>Item #5</li>
+        <li>Item #6</li>
+        <li>Item #7</li>
+        <li>Item #8</li>
+    </ul>
+
+    <ul class="using_only_child">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+        <li>Item #4</li>
+        <li><span>Item #5 (only child)</span></li>
+        <li>Item #6</li>
+        <li>Item #7</li>
+        <li>Item #8</li>
+    </ul>
+
+    <ul class="using_pseudo_class_NOT">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+        <li class="greenandred">Item #4</li>
+        <li>Item #5</li>
+    </ul>
+
+    <ul class="using_pseudo_element_before">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li>Item #3</li>
+        <li class="greenandred">Item #4</li>
+        <li>Item #5</li>
+    </ul>
+
+    <ul class="using_attrb-selector">
+        <li>Item #1</li>
+        <li>Item #2</li>
+        <li data-red>Item #3</li>
+        <li data-green>Item #4</li>
+        <li data-yellow="false">Item #5</li>
+        <li>Item #6</li>
+        <li data-start-with="a1235">Item #7</li>
+        <li data-end-with="b22222c">Item #8</li>
+        <li data-anywhere="3334ua8888">Item #9</li>
+
+    </ul>
+
+    <br>
+    
+    <form >
+        <input type="text" name="email" placeholder="Write your email...">
+        <input type="submit" name="submit">
+
+    </form>
+
+</body>
+</html>

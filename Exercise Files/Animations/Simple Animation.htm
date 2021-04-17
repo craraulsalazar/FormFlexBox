@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Animation</title>
+
+    <style>
+
+        .parent {
+            background-color: hsla(200,100%,20%);
+            height: 400px;
+            width: 400px;
+        }
+
+        .child {
+            background-color: red;
+            height: 50%;
+            width: 50%;
+            /* transition: transform 1s ease-in; */
+            animation: left-to-right 1s ease-in forwards infinite alternate;
+        }
+
+        .parent:hover .child {
+            /* transform: translateX(100%); */
+            /*animation: left-to-right 1s ease-in forwards;*/
+            /* animation: left-to-right 1s ease-in forwards 3 alternate 3s; */
+            /* animation: left-to-right 1s ease-in forwards infinite alternate; */
+            animation-play-state:paused;
+        }
+
+        @keyframes left-to-right {
+            0% {
+                transform: translateX(0)
+            }
+            33% {
+                transform: translateY(100%);
+            }
+            66% {
+                transform: translateX(100%) translateY(100%);
+            }
+            100% {
+                transform: translateX(100%)
+            }
+
+        }
+
+    </style>
+        
+</head>
+<body>
+    
+    <!-- How To Create Performant CSS Animations
+    https://www.youtube.com/watch?v=4PStxeSIL9I 
+
+    Learn CSS Animation In 15 Minutes
+    https://www.youtube.com/watch?v=YszONjKpgg4
+
+-->
+
+
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>

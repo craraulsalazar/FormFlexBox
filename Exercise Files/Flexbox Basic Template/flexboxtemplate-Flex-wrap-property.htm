@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Flex Template</title>
+
+    <link rel="stylesheet" href="flexboxbackground_styles.css">
+    
+
+    <style>
+    
+
+        .flexbox-container {
+            height: 700px;
+            display: flex;
+            flex-wrap: wrap;
+            
+            justify-content: space-around;
+
+            /* this line below align item, if set to align-content:flex-end then below the main axis to the bottom 
+                if set to align-conten: flex-start then above the main axis to the top
+             */
+            align-items:flex-end;
+            /* these 2 align to the top or bottom of the main axis */
+            align-content: flex-end;
+            /* align-content: flex-start; */
+        }
+
+    
+    </style>
+
+</head>
+<body>
+    
+    <div class="flexbox-container">
+        <div class="flexbox-item flexbox-item-1"></div>
+        <div class="flexbox-item flexbox-item-2"></div>
+        <div class="flexbox-item flexbox-item-3"></div>
+        <div class="axis main-axis"></div>
+        <div class="axis cross-axis"></div>
+    </div>
+
+</body>
+</html>

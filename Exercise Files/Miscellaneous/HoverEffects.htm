@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effects</title>
+
+    <style>
+
+            *,
+            *::before,
+            *::after {
+            box-sizing: border-box;
+            }
+
+            .fancy-link {
+                text-decoration: none;
+                color: #ee6352;
+                position: relative;
+            }
+
+            body {
+              font-family: basic-sans, sans-serif;
+              min-height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              font-size: 1.125em;
+              line-height: 1.6;
+              color: #333;
+              background: #ddd;
+            }
+
+            .content {
+              background: white;
+              width: 70vw;
+              padding: 3em;
+              box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+              text-align: center;
+              margin-bottom: 1em;
+            }
+
+            .title {
+              margin: 0 0 0.5em;
+              text-transform: uppercase;
+              font-weight: 900;
+              font-style: italic;
+              font-size: 3rem;
+              color: #ee6352;
+              line-height: 0.8;
+            }
+
+
+            .fancy-link::after{
+                content:'';
+                position:absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background: currentColor;
+
+                transform: scaleX(0);
+                transform-origin: right;
+
+                transition: transform 250ms ease-in;
+            }
+
+            .fancy-link:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+
+            .button {
+                cursor: pointer;
+                border: 0;
+                background: #ee6352;
+                color: white;
+                padding: 1em 1.5em;
+                position: relative;
+                
+                /* Assigning a z-index in a button with position relative
+                it set the z-index stacking context only the button,
+                then when setting z-index to -1
+                it lays the element just behind the button and not the color-adjust:  */
+                
+                z-index: 1;
+                
+            }
+
+            .button + .button {
+                margin-left: 1em;
+            }
+
+            .button::after {
+                content: "";
+                position:absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5); 
+                z-index: -1;
+                transition: transform 200ms ease-in;
+            }
+
+            .button-one::after {
+              transform: scaleX(0);
+              transform-origin: right;
+            }
+
+            .button-one:hover:after {
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+
+            .button-two::after {
+              transform: scaleY(0);
+              transform-origin: bottom;
+            }
+
+            .button-two:hover:after {
+              transform: scaleY(1);
+              transform-origin: top;
+            }
+
+            .button-three::after {
+              transform: scale(0);
+              transform-origin: bottom right;
+            }
+
+            .button-three:hover:after {
+              transform: scale(1);
+              transform-origin: top left;
+            }
+
+
+            .card {
+                padding: 2rem;
+                background-image: url(https://unsplash.it/600);
+                background-size:cover;
+                background-color: #444;
+                background-blend-mode: multiply;
+                color: white;
+                text-align: left;
+            }
+
+            .card__title {
+              position: relative;
+              z-index: 1;
+              display: inline-block;  /*based on the content and NOT in the parent element */
+              margin-bottom: 1rem;
+            }
+
+            .card__title::after {
+              content: "";
+              position: absolute;
+              top: -0.25rem;
+              left: -2rem;
+              bottom: -0.25rem;
+              width: calc(100% + 4rem);
+              background: #ee6352;
+              z-index: -1;
+
+              transform: scaleX(0.1);
+              transform-origin: left;
+              transition: transform 250ms ease-in;
+            }
+
+            .card:hover .card__title::after {
+                transform:scaleX(1);
+            }
+
+            .card__body {
+              position: relative;
+              z-index: 1;
+              color: transparent;  /*black; */
+              margin: 0px;
+              transition: color 150ms 350ms;
+            }
+
+            .card__body::after {
+              content:"";
+              position:absolute;
+              top: -0.75rem;
+              bottom: -0.75rem;
+              left: -0.75em;
+              right: -0.75em;
+              background: white;
+              z-index: -1;
+
+              transform: scaleY(0);
+              transform-origin: top;
+              
+              transition: transform 250ms ease-in;
+              transition-delay: 250ms;
+            }
+
+            .card:hover .card__body {
+              color: black;
+            }
+
+            .card:hover .card__body::after {
+              transform: scaleY(1);
+            }
+
+
+            :root {
+
+              --background-color: #E3E3E3;
+              --border-size: 2px;
+              --accent-color: #0AF;
+            
+            }
+
+            .btn {
+              background-color: var(--background-color);
+              color: #222;
+              padding: .5em 1em;
+              border: none;
+              outline: none;
+              position: relative;
+              cursor: pointer;
+              z-index: 1;
+            }
+             
+
+            .btn.btn-border-pop::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: -1;
+                border: var(--border-size) solid var(--background-color);
+
+                transition: top, left, right, bottom, 200ms ease-in-out;
+            }            
+
+            .btn.btn.btn-border-pop:hover::before,
+            .btn.btn.btn-border-pop:focus::before {
+              top: calc(var(--border-size) * -2);
+              left: calc(var(--border-size) * -2);
+              right: calc(var(--border-size) * -2);
+              bottom: calc(var(--border-size) * -2);
+            }
+
+            .btn.btn-background-slide {
+              z-index: 1;
+              transition: color 300ms ease-in-out;
+            }
+
+            .btn.btn-background-slide:hover,
+            .btn.btn-background-slide:focus
+             {
+              color: white;
+            }
+
+            .btn.btn-background-slide::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: -1;
+                background-color: var(--accent-color);
+                
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 300ms ease-in-out;
+            }
+
+   
+            .btn.btn.btn-background-slide:hover::before,
+            .btn.btn.btn-background-slide:hover::before {
+
+              transform: scaleX(1);
+
+            }
+
+            
+            .btn.btn-background-circle {
+              z-index: 1;
+              overflow: hidden;
+              background-color: var(--accent-color);
+              transition: color 500ms ease-in-out;
+            }
+
+            .btn.btn-background-circle::before {
+              content:'';
+              position: absolute;
+              top: 0;
+              right:0;
+              bottom:0;
+              left: 0;
+              background-color: var(--background-color);
+              z-index: -1;
+              border-radius: 50%;
+              
+              transition: transform 500ms ease-in-out;
+
+              transform: scale(1.5);
+            }
+
+            .btn.btn-background-circle:hover::before,
+            .btn.btn-background-circle:focus::before {
+                transform: scale(0);
+            }
+
+            .btn.btn-background-circle:hover,
+            .btn.btn-background-circle:focus {
+                color: white;
+            }
+
+            .btn.btn-border-underline::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: var(--border-size);
+                background-color: var(--accent-color);
+                transition: transform 300ms ease-in-out;
+
+                transform: scaleX(0);
+              }
+
+              .btn.btn-border-underline:hover::before,
+              .btn.btn-border-underline:focus::before {
+                transform: scaleX(1);
+              }
+
+    </style>
+
+</head>
+<body>
+    
+</body>
+
+<!-- Really fun CSS hover effects
+https://www.youtube.com/watch?v=ceNMP-aQkQ4 
+
+Advanced Button Hover Animations - CSS Only
+https://www.youtube.com/watch?v=cH0TC9gWiAg
+-->
+
+
+<div class="content">
+    <h1 class="title">Really fun hover effects with transform-origin</h1>
+
+    <a class="fancy-link" href="#">It works well with links</a>
+    and even with <a class="fancy-link" href="#">short ones</a> too.
+  </div>
+
+  <div class="content content--buttons">
+    <button class="button button-one">Lorem</button>
+    <button class="button button-two">Quasi</button>
+    <button class="button button-three">Nemotap</button>
+  </div>
+
+  <div class="content content--buttons">
+  
+    <button class="btn btn-border-pop">Border Pop</button>
+    <button class="btn btn-background-slide">Background Slide</button>
+    <button class="btn btn-background-circle">Background Circle</button>
+    <button class="btn btn-border-underline">Border Underline</button>
+
+  </div>
+
+  <div style="margin-bottom: 100vh;" class="content content--card">
+    <div class="card">
+      <h3 class="card__title">Lorem ipsum dolor</h3>
+      <p class="card__body">Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div>
+
+</html>

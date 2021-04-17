@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block, Inline, and Inline-Block explained </title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Rubik:300,700');
+
+        :root{
+            --clr-primary: #ee6352;
+            --clr-body: #333;
+            --clr-bg: #ddd;
+        }
+
+        html {
+            line-height: 1.6;
+            font-family: 'Rubik', sans-serif;
+            margin: 1em;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: var(--clr-primary);
+        }
+
+        p {
+
+            outline: 3px solid red;
+        }
+
+        a {
+            outline: 3px solid orchid;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: lightblue;
+            color:black;
+            padding: 75px 150px;
+            
+        }
+
+        .btn:hover {
+            background: darkblue;
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="content">
+        <h1>block, inLine, and inline-block</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit <a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, natus. </a> pariatur animi tempore nesciunt quaerat, nemo nam quisquam iusto. Dolore, consequatur in? Repellendus repellat officia laboriosam, a, aliquam officiis consequuntur sint obcaecati ut deserunt, recusandae quas quisquam aperiam ullam voluptatem necessitatibus!
+        </p>
+        <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis excepturi inventore <a href="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, at!</a> cum sapiente nesciunt esse iusto, doloremque ex minima! Animi facere tempora, maxime reiciendis nulla sint cumque? Fugiat possimus illum quod repudiandae asperiores consectetur magnam maiores maxime, harum odio velit vitae illo non! Earum culpa molestias tenetur dolorem consequuntur dolores.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil assumenda adipisci dolorem quis <a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, consequuntur.</a> accusamus unde quia iste sapiente. Ipsa aliquam dicta temporibus nisi tempore accusamus ratione ex quisquam? Quae modi ut facere cupiditate, provident sed ea officiis suscipit eveniet fugit doloribus dicta repudiandae blanditiis sequi voluptatum quas ipsam id eligendi. </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ullam rerum ipsum accusamus nemo natus? Cum totam, quos veritatis expedita, ducimus, cupiditate magni ad unde voluptate labore ipsam? Sint magnam nostrum natus laborum reprehenderit quibusdam, quos dolore? Perspiciatis repudiandae nesciunt quaerat eos. Veniam odit itaque, quia beatae aut quasi in!</p>
+        <a href="" class="btn">I am a link button. please, Click Me</a>
+    </div>
+
+</body>
+</html>
