@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Grid</title>
+
+    <style>
+
+        .grid {
+
+            width: 50%;
+            /* height: 99% ; */
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            outline: 2px solid black;
+        }
+        
+        .center-middle {
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+<!-- 
+         SVG Path Tutorial • Easy to Understand!
+    https://www.youtube.com/watch?v=2IY-xTCFjiM&t=0s
+
+    http://tutorials.jenkov.com/svg/path-element.html#path-commands
+
+    
+-->
+<div class="center-middle">
+
+    <svg class="grid"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox= "0 0 100 100" style="border: green solid"
+    >
+        
+        <!-- Create Grid Lines -->
+
+        <!-- Create Vertical Lines -->
+        <path d="M10, 0 V100" 
+            style="stroke: green;
+                    stroke-width: .2px;
+                    fill: none
+            "
+        />
+
+        <path d="M20, 0 V100" 
+            style="stroke: green;
+                    stroke-width: .2px;
+                    fill: none
+            "
+        />
+        
+        <path d="M30, 0 V100" 
+        style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M40, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M50, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M60, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M70, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M80, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M90, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <!-- Create Horizontal Lines -->
+        <path d="M0, 10 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 20 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 30 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 40 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 50 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 60 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 70 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 80 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 90 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <!-- Create Arrow -->
+        <!-- Z command closes the poligon -->
+        <!-- Absolute path (using upper case) -->
+        <path stroke="green" stroke-width="1" fill="none" d="M20 10 H50 V0 L80 20 L50 40 V30 H20 Z" />
+        
+        <!-- Relative path (using lower case) -->
+        <path stroke="red" stroke-width="1" fill="none" d="M20 60 h30 v-10 l30 20 l-30 20 v-10 h-30 z"  />
+
+
+    />
+
+    </svg>
+
+</div>
+
+</body>
+</html>

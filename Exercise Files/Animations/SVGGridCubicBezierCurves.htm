@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Grid</title>
+
+    <style>
+
+        .grid {
+
+            width: 50%;
+            /* height: 99% ; */
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            outline: 2px solid black;
+        }
+        
+        .center-middle {
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+<!-- 
+         SVG Path Tutorial • Easy to Understand!
+    https://www.youtube.com/watch?v=2IY-xTCFjiM&t=0s
+
+    http://tutorials.jenkov.com/svg/path-element.html#path-commands
+
+    
+-->
+<div class="center-middle">
+
+    <svg class="grid"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox= "0 0 100 100" style="border: green solid"
+    >
+        
+        <defs>
+            <ref id="YAxisPosX" param="x" default="50.5"/>
+            <ref id="paramText" param="text-label">button</ref>
+            <ref id="paramStroke" param="outline" default="navy"/>
+      </defs>
+
+        <!-- Create Grid Lines -->
+
+        <!-- Create Vertical Lines -->
+        <path d="M10, 0 V100" 
+            style="stroke: green;
+                    stroke-width: .2px;
+                    fill: none
+            "
+        />
+
+        <path d="M20, 0 V100" 
+            style="stroke: green;
+                    stroke-width: .2px;
+                    fill: none
+            "
+        />
+        
+        <path d="M30, 0 V100" 
+        style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M40, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M50, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M60, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M70, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M80, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M90, 0 V100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <!-- Create Horizontal Lines -->
+        <path d="M0, 10 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 20 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 30 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 40 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 50 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 60 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 70 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 80 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <path d="M0, 90 H100" 
+            style="stroke: green;
+                stroke-width: .2px;
+                fill: none
+        "/>
+
+        <!-- Create Axis Arrows -->
+        <!-- Z command closes the poligon -->
+        <!-- Absolute path (using upper case) -->
+        <path stroke="black" stroke-width="1" fill="none" d="M50, 0 V100" />
+        <path stroke="black" stroke-width="1" fill="none" d="M0, 50 H100" />
+        
+        <!-- Relative path (using lower case)
+            scale(0.06,0.06)
+         -->
+         <path d="M20 10 H50 V0 L80 20 L50 40 V30 H20 Z"
+         style="stroke: #000000; fill:red;"
+         transform="translate(50.2, 5) scale(0.06,0.06) rotate(-90) " />
+
+         <path d="M20 10 H50 V0 L80 20 L50 40 V30 H20 Z"
+         style="stroke: #000000; fill:red;"
+         transform="translate(51.1, 95) scale(0.06,0.06) rotate(90) " />
+
+         <path d="M20 10 H50 V0 L80 20 L50 40 V30 H20 Z"
+         style="stroke: #000000; fill:red;"
+         transform="translate(95.1, 50) scale(0.06,0.06) rotate(0) " />
+
+         <path d="M20 10 H50 V0 L80 20 L50 40 V30 H20 Z"
+         style="stroke: #000000; fill:red;"
+         transform="translate(5, 50) scale(0.06,0.06) rotate(180) " />
+
+
+        <!-- Horizontal Number -->
+        <text y="49.5" x="10.5" fill="black" style="font-size:0.15em;font-weight:bold;">10</text>
+        <text y="49.5" x="20.5" fill="black" style="font-size:0.15em;font-weight:bold;">20</text>
+        <text y="49.5" x="30.5" fill="black" style="font-size:0.15em;font-weight:bold;">30</text>
+        <text y="49.5" x="40.5" fill="black" style="font-size:0.15em;font-weight:bold;">40</text>
+        <text y="49.5" x="50.5" fill="black" style="font-size:0.15em;font-weight:bold;">50</text>
+        <text y="49.5" x="60.5" fill="black" style="font-size:0.15em;font-weight:bold;">60</text>
+        <text y="49.5" x="70.5" fill="black" style="font-size:0.15em;font-weight:bold;">70</text>
+        <text y="49.5" x="80.5" fill="black" style="font-size:0.15em;font-weight:bold;">80</text>
+        <text y="49.5" x="90.5" fill="black" style="font-size:0.15em;font-weight:bold;">90</text>
+        <text y="49.5" x="100.5" fill="black" style="font-size:0.15em;font-weight:bold;">100</text>
+
+        <!-- Vertical Number -->
+        <text x="50.5" y="9.5" fill="black" style="font-size:0.15em;font-weight:bold;">10</text>
+        <text x="50.5" y="19.5" fill="black" style="font-size:0.15em;font-weight:bold;">20</text>
+        <text x="50.5" y="29.5" fill="black" style="font-size:0.15em;font-weight:bold;">30</text>
+        <text x="50.5" y="39.5" fill="black" style="font-size:0.15em;font-weight:bold;">40</text>
+        <text x="50.5" y="49.5" fill="black" style="font-size:0.15em;font-weight:bold;">50</text>
+        <text x="50.5" y="59.5" fill="black" style="font-size:0.15em;font-weight:bold;">60</text>
+        <text x="50.5" y="69.5" fill="black" style="font-size:0.15em;font-weight:bold;">70</text>
+        <text x="50.5" y="79.5" fill="black" style="font-size:0.15em;font-weight:bold;">80</text>
+        <text x="50.5" y="89.5" fill="black" style="font-size:0.15em;font-weight:bold;">90</text>
+        <text x="50.5" y="99.5" fill="black" style="font-size:0.15em;font-weight:bold;">100</text>
+
+        
+          <!-- Quadratic Bezier -->
+         <!-- <path stroke="red" stroke-width="1" fill="none" d="M20 50 Q50 -40, 80 50" ></path> -->
+
+         <!-- Cubic Bezier -->
+        <!-- <circle stroke="blue" stroke-width="1" fill="none" cx="40" cy="20" r="0.5"></circle>
+        <circle stroke="blue" stroke-width="1" fill="none" cx="50" cy="30" r="0.5"></circle>
+
+         <path stroke="red" stroke-width="1" fill="none" d="M20 50 C40 20, 50 30, 80 50" ></path> -->
+
+        <!-- Arcs -->
+        <path fill="lightblue" stroke="red" stroke-width="1" d="M20 50 A1 1, 0 ,0 1, 80 50" ></path>    
+
+        <path fill="red" stroke="red" stroke-width="1" d="M20 50 A1 1, 0 ,0 0, 80 50" ></path>    
+
+
+    />
+
+    </svg>
+
+</div>
+
+</body>
+</html>

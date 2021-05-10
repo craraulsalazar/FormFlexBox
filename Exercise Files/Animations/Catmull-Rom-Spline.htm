@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catmull-Rom Spline</title>
+
+    <style>
+
+        html {
+            line-height: 1.6;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            color: #34517f;
+            margin: 3em auto;
+            text-align: center;
+            background: linear-gradient(to left, #c2e59c , #64b3f4); 
+            font-family: 'Oswald', sans-serif;
+            font-weight: 300;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        polyline {
+            fill: none;
+            stroke: #888;
+            stroke-width: 1;
+        }
+
+        path {
+            position: relative;
+            fill: none;
+            stroke: cornflowerblue;
+            stroke-width: 2;
+        }
+
+        .content {
+            outline: 2px solid red;
+            margin: 0 auto;
+        }
+
+    </style>
+    
+
+</head>
+<body>
+        
+    <!-- https://docs.emmet.io/cheat-sheet/ -->
+    <!-- https://codepen.io/osublake/pen/BowJed -->
+
+    
+    <h1>SVG using Catmull-Rom Spline</h1>
+    <div>
+        <svg class="content">
+            <polyline />
+            <path />
+      </svg>
+    </div>
+
+    
+
+</body>
+
+<script>
+
+    var tension = 1;
+
+    var poly = document.querySelector("polyline");
+    var path = document.querySelector("path");
+
+    var points = [
+        100,350,  
+        200,100,
+        300,350,
+        400,150,
+        500,350,
+        600,200,
+        700,350
+        ];
+
+    poly.setAttribute("points", points);
+    path.setAttribute("d", solve(points, tension));
+    
+
+    console.log(solve(points, tension));
+
+    function solve(data, k) {
+
+        if (k == null) k = 1;
+        
+        var size = data.length;
+        var last = size - 4;    
+
+        var path = "M" + [data[0], data[1]];
+
+        for (var i = 0; i < size - 2; i +=2) {
+
+            var x0 = i ? data[i - 2] : data[0];
+            var y0 = i ? data[i - 1] : data[1];
+
+            var x1 = data[i + 0];
+            var y1 = data[i + 1];
+
+            var x2 = data[i + 2];
+            var y2 = data[i + 3];
+
+            var x3 = i !== last ? data[i + 4] : x2;
+            var y3 = i !== last ? data[i + 5] : y2;
+            
+            var cp1x = x1 + (x2 - x0) / 6 * k;
+            var cp1y = y1 + (y2 - y0) / 6 * k;
+
+            var cp2x = x2 - (x3 - x1) / 6 * k;
+            var cp2y = y2 - (y3 - y1) / 6 * k;
+        
+            path += "C" + [cp1x, cp1y, cp2x, cp2y, x2, y2];
+        } 
+
+        return path;
+        }
+
+</script>
+
+</html>

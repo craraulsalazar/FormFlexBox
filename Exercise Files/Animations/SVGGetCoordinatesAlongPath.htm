@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Coordinates along an SVG path</title>
+
+    <style>
+
+            body {
+            margin: 5em;
+            }
+            #obj {
+            background: blue;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            position: absolute;
+            /* Align center */
+            top:-10px;
+            left: -10px;
+            opacity: 0.5;
+            }
+
+            .container {
+            width: 438px;
+            margin: 0 auto;
+            position: relative;
+            }
+            input[type="range"] {
+            width: 400px; 
+            }
+
+    </style>
+
+</head>
+<body>
+
+<!-- Greatest SVG editor ever
+https://unpkg.com/svgedit@5.1.0/editor/svg-editor.html -->
+
+
+<!-- Get coordinates along an SVG path
+https://codepen.io/jodoron/pen/oNbMWRz -->
+
+
+<!-- Screen coordinates to SVG coordinates
+https://codepen.io/ehsanjso/pen/xNZgPE -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script>
+
+    $( document ).ready(function() {
+            console.log( "ready!" );
+
+            var path = document.getElementById('path')
+            console.log('typeof : ', typeof path);
+            var obj = document.getElementById('obj');
+            // Length of path
+            var pathLength = Math.floor( path.getTotalLength() );
+
+            // Move obj element along path based on percentage of total length
+            function moveObj(prcnt)
+            {
+                prcnt = (prcnt*pathLength) / 100;
+
+                // Get x and y values at a certain point in the line
+                pt = path.getPointAtLength(prcnt);
+                pt.x = Math.round(pt.x);
+                pt.y = Math.round(pt.y);
+                
+                obj.style.webkitTransform = 'translate3d('+pt.x+'px,'+pt.y+'px, 0)';
+
+                slider_val.value = prcnt;
+            }
+
+            // Initialize
+            moveObj(0);
+
+            var sliderEl = document.getElementById('slider');
+                var sliderValEl = document.getElementById('slider_val');
+                sliderEl.addEventListener('mousemove', function() {
+
+                sliderValEl.value = this.value;
+                moveObj(sliderValEl.value);
+            });
+
+            sliderEl.value = 0;
+
+            // Animation functionality
+            // Use request animation frame for better performance 
+            // if you're doing a lot of animation
+            var toggleAnimationBtn = document.getElementById('toggle_animation_btn')
+            var animationTimer = false;
+
+            function animationHandler(prcnt) {
+                moveObj(prcnt);
+                sliderEl.value = prcnt;
+                sliderValEl.value = prcnt;
+                
+                
+                if(prcnt < 100)
+                {
+                    animationTimer = setTimeout(function() {
+                    animationHandler(prcnt+1);
+                    },50)
+                }
+                else
+                {
+                    animationTimer = setTimeout(function() { 
+                    animationHandler(0);
+                    }, 50);
+                }
+            }
+
+
+            toggleAnimationBtn.addEventListener('mouseup', function() {
+                    if(animationTimer) {
+                        clearTimeout(animationTimer);
+                        animationTimer = false;
+                    }
+                    else
+                    {
+                        animationTimer = animationHandler(0);
+                    }
+            });
+
+    });
+
+</script>
+
+    <div class="container">
+        
+        <div id="obj"></div>
+        
+        <svg version="1.1" x="0px" y="0px" width="440.5px" height="147.2px" viewBox="0 0 440.5 147.2" enable-background="new 0 0 440.5 147.2"
+           xml:space="preserve">
+                <path id="path" fill="none" stroke="#000000" stroke-width="2.8243" stroke-miterlimit="10" d="M1.3,78c0,0,74-172.3,198,0s240-38.3,240-38.3"
+          />
+        </svg>
+      
+        <br><br>
+      
+        <input type="range" name="slider" id="slider" min="0" max="100" width="500">
+        <input type="text" name="slider_val" size="3" id="slider_val">
+        <br><br>
+        <button id="toggle_animation_btn">Toggle Animation</button>
+
+      </div>
+
+
+</body>
+</html>

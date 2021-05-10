@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Grid</title>
+
+    <style>
+
+        .grid {
+
+            width: 50%;
+            /* height: 99% ; */
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            outline: 2px solid black;
+        }
+        
+        .center-middle {
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+<!-- 
+         SVG Path Tutorial • Easy to Understand!
+    https://www.youtube.com/watch?v=2IY-xTCFjiM&t=0s
+
+    http://tutorials.jenkov.com/svg/path-element.html#path-commands
+    
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+<script>
+
+$( document ).ready(function() {
+        console.log( "ready!" );
+
+        // var path_chicken = document.querySelectorAll("#chicken_siluote");
+          var path_chicken = $("#chicken_siluote");
+          if (path_chicken)
+          {
+
+                console.log(path_chicken[0]);
+
+                var pathLen = path_chicken[0].getTotalLength();
+                console.log(pathLen);
+
+                path_chicken[0].setAttribute("stroke-dasharray",pathLen);
+                path_chicken[0].setAttribute("stroke-dashoffset",pathLen);
+
+                console.log(path_chicken[0].getAttribute("stroke-dasharray"));
+
+                path_chicken[0].innerHTML = "<animate attributeName='stroke-dashoffset' begin='0s' dur='5s' to='0' fill='freeze' />";
+
+          }
+        
+
+
+        // const length = document.getElementById('chicken_siluote').getTotalLength();
+        // console.log(length);
+        // document.getElementById('length').innerHTML = length;
+          
+
+    });
+
+    
+</script>
+
+<div class="center-middle">
+
+    <!-- <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+        <path id="shape" d="M0 0 H 100 V 100 H 0 L 0 0" fill="purple"/>
+    </svg>
+      
+    <p>Length: <span id="length"></span></p> -->
+
+    <svg width="700" height="700" xmlns="http://www.w3.org/2000/svg" >
+        <path id="chicken_siluote" d="m147.41816,303.36812c-2.10364,-6.38447 -40.1534,1.59727 -20.24217,-6.67188c7.71339,-1.78367 23.55171,0.45285 7.80478,-4.36982c17.93174,6.04975 25.8789,-15.15048 27.03652,-29.44311c-16.69045,-5.20037 -19.58095,-24.62375 -37.16947,-29.85463c-13.40107,-10.50567 -33.04724,-10.18441 -41.55313,-26.38246c-8.07563,-14.42345 -3.51479,-31.9802 -2.17793,-47.56075c3.18236,-16.44829 9.6431,-33.09617 8.36545,-49.80999c-13.02504,7.4989 -17.78713,-9.265 -18.08417,-14.50126c-9.58748,2.45175 -15.66091,2.56041 -5.23507,-5.96809c4.65904,-6.46095 6.97137,-20.57316 14.41436,-18.45486c1.96366,-8.54252 7.17521,3.88394 12.93736,-3.66385c3.53088,2.66593 10.99845,5.6378 2.72091,10.33828c14.9464,7.54162 27.04872,19.01557 33.27507,33.67823c6.23943,14.90205 18.67017,31.00635 38.74403,26.97432c18.17587,3.12069 39.471,-7.78606 38.64349,-26.0869c0.35233,-12.96619 13.11438,-43.24771 30.31426,-27.85704c12.88994,4.94313 27.72193,17.18716 24.681,31.08227c-1.7611,14.32679 -0.40043,28.77745 1.27119,43.22094c-10.79566,8.00241 -8.85747,21.90299 -16.39685,32.36981c6.25462,14.73778 0.23092,30.65933 -10.0072,42.62803c-10.24113,11.03181 -25.20965,20.82932 -41.79989,19.39634c-6.33826,10.55132 7.48396,19.83493 12.36049,20.4261c-12.70744,-4.07331 -10.91763,3.73729 -6.72791,12.0835c3.92541,15.62583 -8.39756,-13.92065 -16.35725,0.21632c-6.17173,6.10331 -30.84711,8.16929 -10.86993,0.85391c17.0489,-6.32474 -19.14465,-10.27945 -11.11074,3.97311c2.65884,5.94637 18.07525,8.56467 1.84783,6.29897c-7.16509,-3.76619 -10.99761,9.60683 -16.68502,7.08449l0.00001,0.00001zm34.20092,-27.48375c6.23811,-7.59222 8.03329,-29.55755 -5.45799,-13.54335c-10.66368,8.64243 -14.51911,23.5172 5.45799,13.54335z" fill="#FF0000" stroke="#000000" stroke-width="5"/>
+
+    />
+
+    </svg>
+
+</div>
+
+</body>
+</html>
