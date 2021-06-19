@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Design Pattern #1</title>
+
+    <style>
+
+        :root {
+            --ff-primary: basic-sans, sans-serif;
+            --clr-primary: #ee6352;
+            --clr-body: #333;
+            --clr-bg: #ddd;
+            --spacer: 1rem;
+
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        .title {
+            color: var(--clr-primary);
+            text-align: center;
+            font-weight: 900;
+        }
+
+        body {
+            font-family: var(--ff-primary);
+            min-height: 100vh;
+            font-size: 1em;
+            line-height: 1.6;
+            background-color: var(--clr-bg);
+            color: var(--clr-body);
+        }
+
+        .flow > * + * {
+            margin-top: var(--spacer);
+        }
+
+        a {
+            color: var(--clr-primary);
+        }
+
+         /* to center content    */
+        .content {
+            width: 70vw;
+            margin: 3rem auto;
+            padding: 3em;
+            box-shadow: 0 0 3em rgba(0,0,0,0.3);
+            background: white;
+
+        }
+
+        .col {
+            padding: 3em;
+            background: rgba(0,0,0,0.1);
+            border: 3px solid rgba(0,0,0, 0.2);
+
+        }
+            
+        .even-columns {
+            display: flex;
+            gap: 1em;
+        }
+
+        /* when you have flex-basis 100%,
+        no matter how many new columns you add the the .even-columns
+        they will expand evenly */
+
+        /* DO NOT set them as 33% or 25% each column */
+
+        .even-columns > * {
+            flex-basis: 100%;
+        }
+
+        .grid-ish {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .grid-ish > * {
+            /* flex: 0 1 10%; */
+            flex: 1 1 10em;
+        }
+
+        .content-sidebar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .content-sidebar > *:nth-child(1) {
+            /* flex: 1 1 70% */
+            flex: 1 1 70%;
+            min-width:25ch;
+            max-width: 20em;
+        }
+
+        .content-sidebar > *:nth-child(2) {
+            /* flex: 1 1 30% */
+            flex: 1 1 30%;
+            min-width:15ch;
+            max-width: 20em;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- Flexbox design patterns you can use in your projects
+    https://www.youtube.com/watch?v=vQAvjof1oe4&t=70s -->
+
+    <div class="content flow">
+
+        <h1 class="title">even columns</h1>
+
+        <div class="even-columns">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+
+    </div>
+
+
+    <div class="content flow">
+
+        <h1 class="title">grid-ish</h1>
+
+        <div class="grid-ish">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+
+    </div>
+
+    <div class="content flow">
+
+        <h1 class="title">Content and sidebar</h1>
+
+        <div class="content-sidebar">
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+</body>
+</html>

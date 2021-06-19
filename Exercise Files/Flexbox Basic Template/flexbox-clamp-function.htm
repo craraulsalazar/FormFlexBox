@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min, Max and Clamp function</title>
+
+    <style>
+
+
+        :root {
+            --ff-primary: basic-sans, sans-serif;
+            --clr-primary: #ee6352;
+            --clr-body: #333;
+            --clr-bg: #ddd;
+            --spacer: 1rem;
+
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        .title {
+            color: var(--clr-primary);
+            
+            /* text-align: center; */
+            margin: 0 0 .5em;
+
+            font-weight: 900;
+            line-height: 1.2;
+
+            font-size: clamp(2rem, 5vw, 5rem);
+
+        }
+
+        body {
+            font-family: var(--ff-primary);
+            min-height: 100vh;
+            font-size: 1em;
+            line-height: 1.6;
+            background-color: var(--clr-bg);
+            color: var(--clr-body);
+
+            /* this allows to center the content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            background: white;
+            padding: 3em;
+            box-shadow: 0 0 3em rgba(0,0,0 0.15);
+
+            /* width: 70%;
+            max-width: 500px; */
+
+            /* this line choses the min of the two values */
+            width: min(500px, 70%);
+            /* width: max(500px, 60%) */
+
+        }
+
+        p {
+            background: lightblue;
+            
+            
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+
+        }
+
+    </style>
+
+</head>
+<body>
+    
+
+    <div class="content">
+
+        <h1 class="title">A catchy title here</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi provident placeat rerum consectetur similique, exercitationem eaque atque iste magni modi?
+        </p>
+        
+
+    </div>
+
+
+</body>
+</html>

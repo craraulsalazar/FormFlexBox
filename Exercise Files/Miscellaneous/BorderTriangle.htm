@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a border to make a triangle</title>
+
+    <style>
+
+        body {
+            font-family: basic-sans, sans-serif ;
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.125em;
+            line-height: 1.6;
+            /* color:#333; */
+            background: #ddd;
+        }
+
+        .content {
+            background: white;
+            width: 70vw;
+            padding: 3em;
+            box-shadow: 0 0 3em rgba(0,0,0, 0.15);
+        }
+
+        .title {
+            margin: 0 0 .5em;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 3rem;
+            color: #ee6352;
+            line-height: .8;
+
+        }
+
+        p {
+            color: rgba(0,0,0, .6);
+        }
+
+        .important {
+            position: relative;
+            color: red;
+        }
+
+        .important::after {
+            content: '';
+            position:absolute;
+            /* background: pink; */
+            /* width: 1em;
+            height: 1em; */
+            top: 0;
+            left: -1.25em;
+
+            border-width: 15px;
+            border-style: solid;
+
+            border-left-color: red;
+            /* border-right-color: blue;
+            border-top-color: yellow;
+            border-bottom-color: green; */
+
+            border-right-color: transparent;
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+
+            /*
+              other way to do it 
+            border: 1em solid transparent;
+            border-left-color: red; */
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+<!-- 
+    How (and why) to use borders to make a CSS triangle (plus a scss mixin)
+    https://www.youtube.com/watch?v=fFJH6dguuqo 
+-->
+
+<div class="content">
+    <h1 class="title">CSS border triangles</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni libero architecto incidunt ex quas perferendis quia cumque ab sint cupiditate.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut dolorem quos adipisci incidunt recusandae vel, aspernatur ad perspiciatis praesentium nobis.</p>
+    <p class="important">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias nam voluptatum soluta. Tempore, dolorem debitis.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias consectetur corporis tempore! Deserunt, at, eum praesentium quia quisquam non animi debitis voluptate eos necessitatibus nihil.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores ab explicabo accusamus repudiandae incidunt necessitatibus amet voluptas perferendis laboriosam.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae voluptatem cum pariatur assumenda sapiente odio totam ipsam sint possimus? Repellendus!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis incidunt eos error adipisci dolorem assumenda doloremque autem nam suscipit? Ab quaerat culpa voluptatem repellat dicta molestias corporis ullam at natus.</p>
+
+</div>
+
+
+
+</body>
+</html>

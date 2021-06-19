@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript test</title>
+
+    <style>
+
+        .empHistoryhidecolumns2,
+        .empHistoryhiderecords2 {
+            display: inline-block;
+        }
+
+        .empHistoryhidecolumns input[type="checkbox"],
+        .empHistoryhiderecords input[type="checkbox"] {
+            
+            margin: 0px;
+            margin-left: 5px;
+            vertical-align:middle;
+            align-items: center;
+            
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+    <h1>DEV Test</h1>
+
+    <script>
+
+        function test(){
+            alert("hello world");
+        }
+
+        function funcA(paramstuObj){
+            
+            var fullname = paramstuObj.stuFirstName + ' ' + paramstuObj.stuLastName;
+
+            var numofCourses = paramstuObj.stuCourses.length;
+            
+            var totalcredits = 0;
+            for (i=0; i < numofCourses; i++) {
+                totalcredits += paramstuObj.stuCourses[i].credit;
+                // console.log(totalcredits);
+            } 
+
+            var avg = totalcredits/numofCourses;
+
+            // console.log(fullname + ", " + avg);
+
+            return fullname + ", " + avg;
+
+        }
+
+        var stuCourseObj1 = {grade:"5", credit:10};
+        var stuCourseObj2 = {grade:"6", credit:20};
+        var stuCourseObj3 = {grade:"7", credit:30};
+
+        var stuObj = {stuFirstName:"Raul", stuLastName: "Salazar", stuCourses: [stuCourseObj1,stuCourseObj2,stuCourseObj3]}
+        
+        //funcA(stuObj);
+
+
+
+    </script>
+
+<div>
+
+    <span class="empHistoryhidecolumns"><label for="ctl00_LoginContent_chkShowHidden">Hide Empty Columns</label><input id="ctl00_LoginContent_chkShowHidden" type="checkbox" name="ctl00$LoginContent$chkShowHidden" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'ctl00$LoginContent$chkShowHidden\',\'\')', 0)"></span>
+
+</div>
+
+
+
+</body>
+
+
+
+
+</html>

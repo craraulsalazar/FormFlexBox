@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Stroke Animation</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #06181f;
+        }
+
+        .container{
+            position: relative;
+            width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container .icon {
+            width: 200px;
+        }
+
+        .container .icon path {
+
+            fill: transparent;
+            stroke-width: 0.6;
+            stroke: #31e8ff;
+
+        }
+
+        .container .icon.star path {
+                
+            stroke-dasharray: 61;
+            stroke-dashoffset: 61;
+        }
+
+        .container .icon.star:hover path {
+            animation: animate-star 2s linear forwards
+        }
+
+        @keyframes animate-star {
+            0% {
+                stroke-dashoffset: 0;
+            }
+            40% {
+                stroke-dashoffset: 61;
+            }
+            80%{
+                stroke-dashoffset: 120;
+                fill: transparent;
+            }
+            100%{
+                stroke-dashoffset: 120;
+                fill: #31e8ff;
+            }
+
+        }
+
+
+        .container .icon.heart path {
+                
+                stroke-dasharray: 159;
+                stroke-dashoffset: 159;
+        }
+    
+        .container .icon.heart:hover path {
+            animation: animate-heart 2s linear forwards
+        }
+
+        @keyframes animate-heart {
+            0% {
+                stroke-dashoffset: 0;
+            }
+            40% {
+                stroke-dashoffset: 159;
+            }
+            80%{
+                stroke-dashoffset: 306;
+                fill: transparent;
+            }
+            100%{
+                stroke-dashoffset: 306;
+                fill: #31e8ff;
+            }
+
+        }
+
+        .container .icon.halfmoon path {
+                
+                stroke-dasharray: 90;
+                stroke-dashoffset: 90;
+        }
+
+        .container .icon.halfmoon:hover path {
+            animation: animate-halfmoon 2s linear forwards
+        }
+
+        @keyframes animate-halfmoon {
+            0% {
+                stroke-dashoffset: 0;
+            }
+            40% {
+                stroke-dashoffset: 90;
+            }
+            80%{
+                stroke-dashoffset: 180;
+                fill: transparent;
+            }
+            100%{
+                stroke-dashoffset: 180;
+                fill: #31e8ff;
+            }
+
+        }
+
+        /* stroke-dashoffset animation
+        http://jsfiddle.net/L4zCY/ 
+        
+        https://www.youtube.com/watch?v=o76nqA1otxI
+        Moving Dotted/Dashed Lines | After Effects Tutorial
+
+        SVG Border Animation with Css.
+        https://www.youtube.com/watch?v=GrY5MCilCo0
+
+
+        https://fjolt.com/article/css-animate-svg-paths
+
+        */
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- Animate Any SVG icons with CSS Only | SVG Stroke Animation With Html CSS
+    https://www.youtube.com/watch?v=0cYdA4MBwhk&t=81s -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+    <script>
+
+        $( document ).ready(function() {
+                console.log( "ready!" );
+
+            var iconstar = document.getElementById('iconheart');
+            if (iconstar)
+            {
+                //console.log('found icon star');
+
+                const length = document.getElementById('iconheart').getTotalLength();
+                console.log(length);
+            }
+
+        });
+
+        
+    </script>
+
+    <div class="container">
+        <div class="icon star">
+
+        <svg viewBox="0 0 24 30" x="0px" y="0px">
+            <path id="iconstar" d="M20.08,9.62l-5.26-.8-2.36-5a.52.52,0,0,0-.91,0l-2.36,5-5.26.8a.5.5,0,0,0-.28.84l3.82,3.92-.9,5.54a.5.5,0,0,0,.74.52l4.7-2.6,4.7,2.6a.5.5,0,0,0,.53,0,.5.5,0,0,0,.21-.49l-.9-5.54,3.82-3.92a.5.5,0,0,0-.28-.84Zm-4.43,4.24a.5.5,0,0,0-.14.43l.78,4.77-4-2.23a.5.5,0,0,0-.48,0l-4,2.23.78-4.77a.5.5,0,0,0-.14-.43L5,10.46l4.57-.7A.5.5,0,0,0,10,9.48l2-4.3,2,4.3a.5.5,0,0,0,.38.28l4.57.7Z"/>
+            
+        </svg>
+
+        </div>
+
+        <div class="icon heart">
+
+            <svg 
+            viewBox="0 0 12.7 15.875" version="1.1" x="0px" y="0px">
+            <g transform="translate(0,-284.29998)">
+            <g transform="matrix(0.82046302,0,0,0.82046302,12637.531,-3065.6536)">
+            <path id="iconheart" transform="matrix(0.26458333,0,0,0.26458333,0,284.29998)" 
+            d="m -58175.031,14363.557 a 15.334673,15.334673 0 0 0 -11.502,5.168 15.334673,15.334673 0 0 0 -24.707,17.925 59.090453,59.090453 0 0 0 24.23,22.793 1.0614274,1.0614274 0 0 0 0.961,0 59.090453,59.090453 0 0 0 24.223,-22.793 15.334673,15.334673 0 0 0 -13.205,-23.093 z m 0.02,1.988 a 13.334674,13.334674 0 0 1 11.463,20.094 57.090452,57.090452 0 0 1 -22.982,21.804 57.090452,57.090452 0 0 1 -22.981,-21.804 13.334674,13.334674 0 0 1 22.133,-14.793 1.0614274,1.0614274 0 0 0 1.693,0 13.334674,13.334674 0 0 1 10.674,-5.301 z" style="" fill="#000000" stroke="none"/></g></g><text x="0" y="27.7" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Phạm Thanh Lộc</text><text x="0" y="32.7" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text>
+        </svg>
+
+        </div>
+        <div class="icon halfmoon">
+
+            <svg  viewBox="0 0 32 40" x="0px" y="0px"><title>Half moon</title><g data-name="Half Moon">
+                <path d="M29.7,18.62a1,1,0,0,0-1-.25,12,12,0,0,1-3.3.46A12.26,12.26,0,0,1,13.17,6.58a12,12,0,0,1,.46-3.3A1,1,0,0,0,12.4,2,14.25,14.25,0,1,0,30,19.6,1,1,0,0,0,29.7,18.62ZM16.25,28A12.25,12.25,0,0,1,11.32,4.54a14.24,14.24,0,0,0,14.1,16.29,14.11,14.11,0,0,0,2-.15A12.27,12.27,0,0,1,16.25,28Z"/></g><text x="0" y="47" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Iconbox</text><text x="0" y="52" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text>
+            </svg>
+
+        </div>
+    </div>
+
+</body>
+</html>

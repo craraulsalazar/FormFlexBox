@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Gap Property</title>
+
+    <style>
+
+        :root{
+             --clr-primary: #ee6352;
+             --clr-body: #333;
+             --clr-bg: #ddd;
+        }
+
+        .content {
+            outline: 1px solid red ;
+            margin: 0 auto;
+            padding: 1em;
+        }
+
+        .flex-parent {
+            display: flex;
+            flex-direction: column;
+            /* gap: 3em; */
+        }
+        
+
+        .flex-parent > * {
+            padding: 1em;
+            background: #234;
+            outline: 5px solid limegreen;
+            color: white;
+        }
+
+        /* fall back for gap in firefox or IE */
+        /* the lobotomized owl selector */
+        .flex-parent > * + * {
+            margin: 3em 0 0 0;
+        }
+
+        @media (min-width:60em) {
+            
+            .flex-parent {
+                flex-direction: row;
+            }
+
+            /* fall back for gap in firefox or IE */
+            /* the lobotomized owl selector */
+            .flex-parent > * + * {
+                margin: 0 0 0 3em;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="content">
+
+        <div class="flex-parent">
+            <div>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque quasi earum, error eaque ex cumque eum quos explicabo quis perferendis.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, praesentium pariatur! Impedit dolor error earum accusantium labore. Voluptas, natus ipsam.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima animi perferendis similique, tempora amet minus rerum sed ex quaerat molestias?
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque quasi earum, error eaque ex cumque eum quos explicabo quis perferendis.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, praesentium pariatur! Impedit dolor error earum accusantium labore. Voluptas, natus ipsam.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima animi perferendis similique, tempora amet minus rerum sed ex quaerat molestias?
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque quasi earum, error eaque ex cumque eum quos explicabo quis perferendis.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, praesentium pariatur! Impedit dolor error earum accusantium labore. Voluptas, natus ipsam.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima animi perferendis similique, tempora amet minus rerum sed ex quaerat molestias?
+                </p>
+            </div>
+
+        </div>            
+
+    </div>
+    
+</body>
+</html>

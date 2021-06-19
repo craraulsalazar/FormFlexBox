@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo element before and after</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Unica+One|Vollkorn');
+
+        :root {
+
+            --ff-ss: 'Unica One';
+            --ff-s: 'Vollkorn';
+
+            --clr-red: #c31;
+            --clr-black: rgba(black, 1);
+            --clr-gray: rgba(black, .7);
+        }
+
+        body {
+        font-size: 1rem;
+        text-align: center;
+        font-family: var(--ff-s);
+        line-height: 1.4;
+        color: var(--clr-gray);
+        }
+
+        h1, h2, h3, h4, h5 {
+        font-family: var(--ff-ss);
+        text-transform: uppercase;
+        line-height: .9;
+        color: #c31;
+        }
+
+        *,*::before,*::after {
+            box-sizing: border-box;
+        }
+
+        h2 {
+        margin-top: 1.2em;
+        margin-bottom: 0;
+        }
+
+        p {
+        margin-top: .25em;
+        }
+
+        a {
+            color: var(--clr-red);
+        }
+
+        .intro {
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro::before,
+        .intro::after {
+
+            content: '';
+            height: 100%;
+            display: block;
+
+            position: absolute;
+
+
+        }
+
+        .intro::before {
+            background: lightblue;
+            background: white;
+            
+            height: 101%;
+            z-index: -1;
+
+            left: -20px;
+            right: -20px;
+        }
+
+        .intro::after {
+            background: lightcoral;
+            /* width: 100%; */
+            width: 100vw;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            z-index: -2;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            position: relative;
+            margin: 1em;
+            background: gray;
+        }
+
+        .card::before,
+        .card::after {
+            content: '';
+            
+            position: absolute;
+            /* background: lightblue; */
+
+            top: 1.25em;
+            bottom: 1.25em;
+            left: 1.25em;
+            right: 1.25em;
+            
+            
+        }
+
+        .card::before {
+            /* background: pink; */
+            transform: scale(0,1);
+            transition: transform ease-out 450ms;
+
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+        }
+
+        .card::after {
+            /* background: pink; */
+            transform: scale(1,0);
+            transition: transform ease-out 450ms;
+
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+        }
+
+        .card:hover::before {
+            transform: scale(1,1);
+        }
+
+        .card:hover::after {
+            transform: scale(1,1);
+        }
+
+        .card__img {
+            max-width: 100%;
+            display: block;
+            opacity: 1;
+            transition: opacity ease-in-out 250ms;
+            
+        }
+
+
+        .card:hover .card__img,
+        .card:hover .card__img {
+            opacity: 0.4;
+        }
+        
+
+        .card__text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            opacity: 0;
+            transition: opacity ease-in-out 250ms;
+        }
+
+        .card:hover .card__text {
+            opacity: 1;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- CSS Before and After pseudo elements explained - part three: as design elements
+    https://www.youtube.com/watch?v=djbtPnNmc0I&t=1062s -->
+
+    <!-- https://tympanus.net/codrops/2014/06/19/Ideas-for-subtle-hover-effects/ -->
+
+    <h1 class="intro">Here is a generic heading</h1>
+
+
+    <div class="container">
+        
+        <div class="card">
+            <img src="//unsplash.it/400/400" alt="" class="card__img">
+            <div class="card__text">
+                <h3 class="card__title">Card title</h3>
+                <p class="card__body">And here is some text</p>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <img src="//unsplash.it/401/401" alt="" class="card__img">
+            <div class="card__text">
+                <h3 class="card__title">Card title</h3>
+                <p class="card__body">And here is some text</p>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <p class="source">Hover effect inspired by <a href="https://tympanus.net/Development/HoverEffectIdeas/">this codrops article</a></p>
+
+
+</body>
+</html>

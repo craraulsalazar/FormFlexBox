@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5+ Must Know HTML Tags that almost nobody knows</title>
+
+    <style>
+
+        /* .picture_unsplashed_image {
+            background-image: url("https://unsplash.it/400")
+        }
+
+        .largedesktopsize_picture_unsplashed_image {
+            background-image: url("https://unsplash.it/900")
+        } */
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- 5+ Must Know HTML Tags That Almost Nobody Knows
+    https://www.youtube.com/watch?v=iX_QyjdctsQ&t=1s -->
+
+    <form>
+        <fieldset>
+            <legend>Favorites</legend>            
+
+            <div>
+                <label>Color</label>
+            </div>
+            <div>
+                <input list="color-list" type="text">
+                <datalist id="color-list">
+                    <option value="Red"></option>
+                    <option value="Green"></option>
+                    <option value="Blue"></option>
+                    <option value="Yellow"></option>
+                    <option value="Black"></option>
+                    <option value="White"></option>
+                    <option value="Purple"></option>
+                    <option value="Cyan"></option>
+                    <option value="Pink"></option>
+                </datalist>
+
+            </div>
+            <br>
+            <input type="color">
+            <br>
+            <input type="time">
+            <br>
+            <div>
+                <label>File Upload</label>
+            </div>
+            <progress max="100">50%</progress>
+
+        </fieldset>
+
+    </form>        
+
+
+    <p>H<sub>2</sub>O</p>
+    <p>O<sub>2</sub></p>
+    <p>X<sup>2<sup>3 <sup>4 <sup>5</sup>  </sup> </sup></sup> * y<sup>4</sup></p>
+
+    <!-- <img src="https://unsplash.it/400"> -->
+
+    <picture>
+        <source srcset="" media="(min-width:900px)" class="largedesktopsize_picture_unsplashed_image">
+        <img src="" class="picture_unsplashed_image">
+    </picture>
+
+    <script>
+        const mobile_image = document.querySelector('.picture_unsplashed_image');
+        const m = mobile_image.setAttribute("src","https://unsplash.it/400")
+
+        const largedesktop_image = document.querySelector('.largedesktopsize_picture_unsplashed_image');
+        const s = largedesktop_image.setAttribute("src","https://unsplash.it/900")
+
+    </script>
+
+    <template>
+        <h5>this is a template</h5>
+    </template>
+
+    <script>
+        const template = document.querySelector('template');
+        const content = template.content.cloneNode(true);
+        document.body.append(content);
+    </script>
+
+</body>
+</html>

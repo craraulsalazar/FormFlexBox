@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Dashed Line</title>
+
+    <style>
+
+        .test {
+        background: red;
+        }
+
+        .bg {
+            background: url('https://i.cloudup.com/UX_bvc75aJ-2000x2000.png')
+        }
+
+
+        .path {
+            -webkit-animation: dash 2s linear;
+            /* -webkit-animation: dash 30s linear infinite; */
+            stroke-dasharray: 4;
+        }
+
+        @-webkit-keyframes dash {
+        
+            to {
+                stroke-dashoffset: 1000;
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+    
+<div class="bg">
+  <svg width="200" class="test" height="200" viewBox="0 0 200 200">
+    <polygon
+      class="path"
+      points="0 0, 100 0, 100 40, 200 40, 200 200, 100 200, 100 150, 0 150, 0 0" 
+      stroke="#000000"
+      stroke-width="2"
+      style="fill: yellow; fill-opacity: 0.5;"/>
+  </svg>
+
+
+</div>
+
+</body>
+</html>

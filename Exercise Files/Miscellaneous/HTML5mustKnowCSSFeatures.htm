@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 5 must know CSS Features that almost nobody knows</title>
+
+    <style>
+
+        body {
+            background-color: #DDD;
+        }
+
+        .card-ellipsis-example {
+            width: 800px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        .header {
+            font-size: 2rem;
+            padding: .5rem;
+            background-color: blue;
+            color: white;
+
+            /* add an ellipsis */
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .bodyText {
+            padding: 1rem;
+        }
+
+
+        .card-text-shadow-example > h1 {
+            font-size: 5rem;
+            text-shadow: 45px -20px 1px red;
+        }
+
+        .card-background-clip-example > h1,
+        .card-background-clip-set-to-Initial-example > h1 {
+            font-size: 5rem;
+            background-image: url(https://unsplash.it/600);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+
+        .card-background-clip-set-to-Initial-example > h1 {
+            all: initial;
+            font-size: 3rem;
+            background-image:none;
+            color: green;
+        }
+
+        .card-ellipse-shapes-example > button {
+            font-size: 3rem;
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: .50rem .75rem;
+            
+        }
+
+
+        .ellipse {
+            border-radius: 50%;
+        }
+
+        .pill {
+            border-radius: 9999px;
+        }
+
+        .card-ellipsis-read-more-read-less {
+
+            width: 800px;
+            background-color: white;
+            border: 1px solid black;
+            margin-bottom: 1em;
+
+            display: flex;
+            gap: 0em;
+        }
+
+
+        .card-ellipsis-read-more-read-less > p {
+
+            outline: solid 2px red;
+            /* width: 300px; */
+        }
+
+        .card-ellipsis-read-more-read-less > p:nth-child(1) {
+            /* outline: solid 2px red; */
+            width: 300px;
+
+            /* text-overflow: ellipsis; */
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- 5+ Must Know HTML Tags That Almost Nobody Knows
+    https://www.youtube.com/watch?v=iX_QyjdctsQ -->
+
+    <div class="card-ellipsis-read-more-read-less">
+        
+        <p>
+            Lorem, ipsum dolor sit amet consectetur <a href="www.google.com">adipisicing elit</a>. Facilis exercitationem nemo minima debitis saepe adipisci labore veniam, ipsam earum consequatur. 
+        </p>
+        <p>
+            <a href="www.google.com">...Read More</a>
+            
+        </p>
+
+    </div>
+    
+
+ <!-- add an ellipsis -->
+<div class="card-ellipsis-example">
+
+    <div class="header">
+        <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio necessitatibus earum ea incidunt. -->
+
+        This micro-credential will support registered <a href="https://www.w3schools.com" target="_blank">nurses and registered practical nurses in acquiring</a>additional knowledge and skills to support work in acute healthcare settings. You will learn from experienced nursing faculty in active learning environments such as state-of-the-art nursing laboratories, or through online learning platforms. Specific subject areas include starting intravenous lines, venipuncture and analysis of results, and recognition and interpretation of cardiac arrhythmias and ECG’s. Emphasis is placed on nursing assessment, intervention, and care planning. Students who successfully complete all four courses will receive a Recognition of Professional Development from Conestoga College. Nursing students in final semesters of their program can enroll in courses.
+
+
+    </div>
+    <div class="bodyText">
+
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui praesentium soluta, voluptatem iusto distinctio fugiat dolorem non est iure voluptatum debitis repellat cumque, tempora delectus placeat officiis magni dolorum officia.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id suscipit est, vel fugiat hic ut tempore accusantium quam rem provident, cum quaerat adipisci nostrum ad repellendus earum voluptates similique soluta omnis, laboriosam expedita quibusdam eaque voluptate illum! Dolorum obcaecati consectetur nobis repudiandae vel et, modi odit soluta numquam culpa earum provident voluptas voluptatum facere architecto itaque, iusto, inventore doloremque ratione. Sint placeat natus hic tempore illo fuga qui ipsam quaerat amet reiciendis iste ab repudiandae optio, enim eum. Ipsam ipsa, perferendis soluta dolorum molestiae ducimus quibusdam excepturi ipsum vero veritatis quia asperiores delectus ea voluptates. Inventore distinctio similique excepturi sunt.
+    </div>
+
+</div>
+
+
+
+<section class="card-text-shadow-example">
+
+    <h1>
+        Lorem ipsum dolor sit amet.
+    </h1>
+
+</section>
+
+
+<section class="card-background-clip-example">
+
+    <h1>
+        Lorem ipsum dolor sit amet.
+    </h1>
+
+</section>
+
+<section class="card-background-clip-set-to-Initial-example">
+
+    <h1>
+        Lorem ipsum dolor sit amet.
+    </h1>
+
+</section>
+
+<section class="card-ellipse-shapes-example">
+    <button class="ellipse">Ellipse Shape</button>
+    <button class="pill">Pill Shape</button>
+
+</section>
+
+
+</body>
+</html>
