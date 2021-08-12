@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improve your CSS by keeping dry</title>
+
+    <style>
+
+            @import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:700,700i|Lato:400,700');
+
+            body {
+                margin: 0;
+                font-family:'Lato', sans-serif;
+            }
+
+            h1{
+                font-family: 'Cormorant Infant', sans-serif;
+                font-weight: 700;
+                font-size: 75px;
+                margin: 0;
+            }
+
+            h2{ 
+                font-size: 30px;
+                font-weight: 400;
+                margin-top: 0;
+            }
+
+            p {
+                line-height: 1.75;
+            }
+
+            a {
+                color: inherit;
+            }
+
+            .container {
+                width: 70%;
+                margin: 0 auto;
+            }
+
+            section {
+                padding: 2em 0;
+            }
+
+            .start {
+                background-color: rgb(41,62,70);
+                color: white;
+            }
+
+            .middle {
+                background-color: rgb(154,199,195);
+                /* color: white; */
+            }
+
+            .end {
+
+                background-image: url('https://onculturedays.ca/wp-content/uploads/2020/06/Downtown-Waterloo-1024x683.jpg');
+                object-fit: cover;
+                filter: opacity(0.8);
+                
+            }
+
+            /* Text Opacity over Image */
+
+            .end h1,
+            .end h2,
+            .end p {
+                
+                font-weight: bolder;                
+                background-color:rgba(205, 207, 57, 0.4) ;
+                color:black;
+            }
+
+            .btn {
+                display:inline-block;
+                text-decoration: none;
+                padding: 1em 2em;
+            }
+
+            .btn-normal {
+                background: rgb(36, 149, 146);
+            }
+
+            .btn-normal:hover {
+                background: rgb(36, 128, 125);
+            }
+
+            .btn-ghost {
+                border: 2px solid white;
+                color: white;
+            }
+
+            .btn-ghost:hover {
+                background: white;
+                color: black;
+            }
+
+            .btn-awesome {
+                background: rgb(36, 149, 146);
+                box-shadow: 0px 4px 5px -2px rgba(0,0,0, 0.75);
+                color: white;
+                transition: all ease-in-out 250ms;
+            }
+
+            .btn-awesome:hover {
+                box-shadow: 0px 18px 8px -10px rgba(0,0,0, 0.6);
+                transform: translateY(-10px);
+                
+            }
+
+    </style>
+
+</head>
+<body>
+    
+<!--     
+    Improve your CSS by Keepin' it DRY
+    https://www.youtube.com/watch?v=0px6YH-cauQ -->
+
+
+    <!-- Image blur effect -->
+    <!-- https://stackoverflow.com/questions/45334738/text-overlay-opacity -->
+
+    <section class="start">
+        <div class="container">
+            <h1>Lorem, ipsum dolor.</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim, ut.</h2>
+
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus illo rerum praesentium expedita corporis eius eos harum inventore laborum magnam animi dicta atque maxime ea tenetur quisquam, tempora dolor sunt fuga assumenda. Recusandae facere corporis commodi ut ab cumque quo debitis! Nisi, libero sunt. Voluptas labore dolor fugiat itaque magni.</p>
+            <a href="#" class="btn btn-normal">Normal button</a>
+        </div>
+
+    </section>
+
+
+    <section class="middle">
+        <div class="container">
+            <h1>Lorem ipsum dolor sit amet.</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, aperiam.</h2>
+
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, ipsum blanditiis asperiores perferendis doloremque harum accusantium voluptate error molestias expedita repudiandae! Autem officiis quae quibusdam nisi itaque illo, qui repellat sapiente cumque, totam molestias. Maiores sapiente illum numquam? Voluptate aspernatur quod dolores illum ut excepturi nam repudiandae animi, natus reiciendis!</p>
+            <a href="#" class="btn btn-ghost">Ghost button</a>
+        </div>
+
+    </section>
+
+    <section class="end">
+        <div class="container">
+            <h1>Lorem ipsum dolor sit amet.</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, ab.</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias provident doloremque excepturi expedita autem ipsa, eligendi nam quae officiis, non tempora? Ipsum est at quos pariatur, mollitia cupiditate eius earum? Provident, rem delectus eveniet perferendis perspiciatis amet consequuntur harum reiciendis quaerat cumque. Vero ullam dolorum explicabo repudiandae voluptatum mollitia nobis?</p>
+            <a href="#" class="btn btn-awesome">Awesome button</a>
+        </div>
+
+    </section>
+
+</body>
+</html>

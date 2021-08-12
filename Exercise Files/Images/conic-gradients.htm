@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conic gradient</title>
+
+    <style>
+
+        :root{
+            --clr-primary: #ee6352;
+            --clr-body: #333;
+            --clr-bg: #ddd;
+        }
+
+        body {
+            font-family: basic-sans, sans-serif ;
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.125em;
+            line-height: 1.6;
+            color: var(--clr-body);
+            background: var(--clr-bg);
+        }
+
+        .content {
+            background: white;
+            width: 70vw;
+            padding: 3em;
+            box-shadow: 0 0 3em rgba(0,0,0, 0.15);
+        }
+
+        .title {
+            margin: 0 0 .5em;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 3rem;
+            color: var(--clr-primary);
+            line-height: .8;
+            text-align: center;
+
+        }
+
+        p {
+            color: black;
+        }
+
+        a {
+            color: var(--clr-primary);
+        }
+
+        .All-pie-charts {
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+        }
+
+
+        [class*="pie-using"] {
+
+            width: 100px;
+            height: 100px;
+            padding: 1%;
+            border-radius: 50%;
+            outline: 1px solid black;
+        }
+
+        /* using abjacent selector */
+
+        [class*="pie-using"] + div {
+            margin-left: 20px;
+        }
+        
+        .pie-using-linear-gradient {
+            background: linear-gradient(red, yellow, lime, aqua,blue, fuchsia,red);
+        }
+
+        .pie-using-conic-gradient {
+            background: Conic-gradient(red, yellow, lime, aqua,blue, fuchsia,red);
+        }
+
+        .pie-using-conic-gradient-percentage {            
+            background: Conic-gradient(red 40%, yellow 0%);
+        }
+
+        .pie-using-conic-gradient-angle {            
+            background: Conic-gradient(red 6deg, yellow 6deg 20deg, purple 20deg 0deg);
+        }
+
+        .pie-using-checkboard-conic-gradient {            
+
+            background:
+                    conic-gradient(#fff 0.25turn, #000 0.25turn 0.5turn, #fff 0.5turn 0.75turn, #000 0.75turn)
+                    top left / 25% 25% 
+                    repeat;
+                    
+                    border: 1px solid;
+
+        }
+
+        .pie-using-checkboard-conic-gradient-sample2 {
+            background:
+                    conic-gradient(#fff 0.25turn, #000 0.25turn 0.5turn,  #fff 0.5turn 0.75turn, #000 0.75turn);
+
+                border: 1px solid;
+        }
+
+        .pie-using-checkboard-conic-gradient-sample3 {
+            background:
+                    conic-gradient(#fff 0.25turn, #000 0.25turn 0.5turn,  #fff 0.5turn 0.75turn, #000 0.75turn)
+                    top left / 50% 50%;
+
+                border: 1px solid;
+        }
+
+        .pie-using-checkboard-conic-gradient-sample4 {
+            background:
+                    conic-gradient(#fff 0.25turn, #000 0.25turn 0.5turn,  #fff 0.5turn 0.75turn, #000 0.75turn)
+                    top left / 75% 75%;
+
+                border: 1px solid;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="content">
+        <h1 class="title">Conic Gradient</h1>
+
+        <div class="All-pie-charts">
+    
+            <div class="pie-using-linear-gradient">
+            </div>
+    
+            <div class="pie-using-conic-gradient">
+            </div>
+    
+            <div class="pie-using-conic-gradient-percentage">
+            </div>
+    
+            <div class="pie-using-conic-gradient-angle">
+            </div>
+
+            <div class="pie-using-checkboard-conic-gradient">
+            </div>
+
+            <div class="pie-using-checkboard-conic-gradient-sample2">
+            </div>
+
+            <div class="pie-using-checkboard-conic-gradient-sample3">
+            </div>
+
+            <div class="pie-using-checkboard-conic-gradient-sample4">
+            </div>
+
+        </div>
+        
+    </div>
+
+    
+
+</body>
+</html>

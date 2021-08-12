@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive design made easy</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:700,700i|Lato:400,700');
+
+        :root {
+            --clr-primary-300: #F3EED9;
+            --clr-primary-400: #824936;
+            --clr-neutral-100:#FFF; 
+            --clr-neutral-900: #222C2A;
+
+            --ff-primary: 'Cormorant Infant', san-serif;
+            --ff-accent: 'Lato', serif;
+
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--ff-primary);
+            font-weight: 400;
+            font-size: 1.3125rem;
+            line-height: 1.6;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--ff-accent);
+            font-weight: 900;
+            line-height: 1;
+            color: var(--clr-primary-400)
+            
+        }
+
+        h2,
+        h3,
+        p {
+            margin-bottom: 1em;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        header,
+        section {
+            padding:3rem 0;
+        }
+
+        @media (min-width: 40em) {
+
+            header,
+            section {
+                padding:7rem 0;
+            }
+
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Centering text and images using marging auto */
+        .container {
+            margin: 0 auto;
+            width: min(90%,70.5rem);
+        }
+
+        .split {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 40em) {
+            .split {
+                flex-direction: row;
+            }
+
+            .split > * {
+                flex-basis: 100%;
+            }
+
+            .split > * + * {
+                margin-left: 2em;
+            }
+        }
+
+        .container--narrow {
+            max-width: 34rem;
+        }
+
+        .bg-light {
+            background-color: var(--clr-primary-300);
+        }
+
+        .bg-dark {
+            color: var(--clr-neutral-100);
+            background-color: var(--clr-primary-400);
+        }
+
+        .bg-accent {
+            color: var(--clr-neutral-100);
+            background-color: var(--clr-neutral-900);
+        }
+
+        .bg-accent h2,
+        .bg-dark h2 {
+            color: var(--clr-primary-300);
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- Responsive design made easy
+    https://www.youtube.com/watch?v=bn-DQCifeQQ -->
+
+</body>
+
+    <header class="bg-light text-center">
+
+        <div class="container container--narrow">
+            <p>Lorem, ipsum dolor.</p>
+            <h1>Responsive layout don't have to be a struggle</h1>
+        </div>
+
+    </header>
+
+    <section>
+        <div class="container">
+
+            <h2 class="text-center">Quality Designs</h2>
+            <!-- div*2>p>lorem25 -->
+            <div class="split">
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et enim libero, aliquid minima veniam inventore soluta cumque sapiente, ad pariatur rerum sed similique nemo rem.</p>
+                </div>
+                <div>
+                    <p>Culpa sed fugiat reprehenderit nisi eveniet facere nihil a. Nam dolorem, iure unde, voluptates, molestias provident tenetur asperiores facilis aliquam natus aut debitis quam cum?</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- section*2>.split>div*2 -->
+    <section class="bg-dark">
+        <div class="container">
+
+            <div class="split">
+                <div>
+                    <h2>Made custom for you</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit reprehenderit perferendis quo deserunt neque quisquam?</p>
+                </div>
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEwjvg8LlNc3pj97Vz0-oZHapyhxcMY5kWjQ&usqp=CAU" alt="Man standing in mountain top lookin at sunset">
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="bg-accent">
+        <div class="container">
+
+            <div class="split">
+                <div>
+                    <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/foggy-mountain-at-sunrise-frank-chen.jpg" alt="Foggy mountains with sunset behind them">
+                </div>
+                <div>
+                    <h2>Created with care</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit reprehenderit perferendis quo deserunt neque quisquam?</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</html>

@@ -75,6 +75,36 @@
 
         }
 
+        .one {
+            background: #FFC145;
+            position: relative;
+        }
+        
+        .one::before {
+            position: absolute; 
+            content: '';
+            width: 2em;
+            height: 2em;
+            background: #FFC145;
+            bottom: -2em;
+            left: 2em;
+            z-index: 100;
+        }
+
+        .one::before {
+            /* transform: skewX(20deg) */
+
+            /* polygon(2nd point, 1st point, 3rd point); */
+
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+
+            clip-path: polygon(5% 100%, 0 0, 100% 0);
+
+            clip-path: polygon(95% 100%, 0 0, 100% 0);
+
+            clip-path: polygon(95% 100%, 0 0, 75% 0);
+
+        }
 
     </style>
 
@@ -84,6 +114,9 @@
 <!-- 
     How (and why) to use borders to make a CSS triangle (plus a scss mixin)
     https://www.youtube.com/watch?v=fFJH6dguuqo 
+
+    How to make shapes with CSS
+    https://www.youtube.com/watch?v=QY7Rj8aZcZk&t=957s
 -->
 
 <div class="content">
@@ -92,7 +125,7 @@
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut dolorem quos adipisci incidunt recusandae vel, aspernatur ad perspiciatis praesentium nobis.</p>
     <p class="important">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias nam voluptatum soluta. Tempore, dolorem debitis.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias consectetur corporis tempore! Deserunt, at, eum praesentium quia quisquam non animi debitis voluptate eos necessitatibus nihil.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores ab explicabo accusamus repudiandae incidunt necessitatibus amet voluptas perferendis laboriosam.</p>
+    <p class="one">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores ab explicabo accusamus repudiandae incidunt necessitatibus amet voluptas perferendis laboriosam.</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae voluptatem cum pariatur assumenda sapiente odio totam ipsam sint possimus? Repellendus!</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis incidunt eos error adipisci dolorem assumenda doloremque autem nam suscipit? Ab quaerat culpa voluptatem repellat dicta molestias corporis ullam at natus.</p>
 

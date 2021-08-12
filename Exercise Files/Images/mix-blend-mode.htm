@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mix Blend Mode cool sample</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:700,700i|Lato:400,700');
+
+        :root {
+        --ff-primary: basic-sans, sans-serif;
+        --clr-primary: #ee6352;
+        --clr-body: #333;
+        --clr-bg: #ddd;
+        --spacer: 1rem;
+
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        h1 {
+            font-family: var(--ff-primary);
+            font-size: 1em;
+        }
+
+        .title {
+            color: var(--clr-primary);
+            text-align: center;
+            font-weight: 900;
+        }
+
+        body {
+            font-family: var(--ff-primary);
+            min-height: 100vh;
+            font-size: 1em;
+            line-height: 1.6;
+            background-color: var(--clr-bg);
+            /* color: var(--clr-body); */
+
+            font: italic clamp(1.25em, 15vw, 7em)/ 1.25 
+		            marck script, purisa, segoe script, comic sans ms, cursive;
+		        
+        }
+
+        .flow > * + * {
+            margin-top: var(--spacer);
+        }
+
+        /* a {
+            color: var(--clr-primary);
+        } */
+
+         /* to center content    */
+        .content {
+            width: 70vw;
+            margin: 1rem auto;
+            padding: 2em;
+            box-shadow: 0 0 3em rgba(0,0,0,0.3);
+            background: white;
+
+        }
+
+        .columns {
+            columns: 25ch 3;
+            gap: 2em;
+        }
+
+        .card {
+
+            padding: .5em;
+            border: 1px solid;
+            break-inside: avoid;
+        }
+
+
+        p { isolation: isolate }
+
+        a {
+            position: relative;
+            padding: 0 .25em;
+            color: gold;
+            text-decoration: none;
+        }
+
+        a::after {
+            position: absolute;
+            top: 0; bottom: 0; right: 0; left: 0;
+            transform-origin: 0 100%;
+            transform: scaley(.05);
+            background:  gold;;
+            mix-blend-mode: difference;
+            transition: transform .25s;
+            content: ''
+	    }
+	
+	    a:focus { outline: none; }
+
+	    a:focus::after, a:hover::after {  
+            transform: none; 
+            color: gold;
+            } 
+
+
+    </style>
+
+
+</head>
+<body>
+    
+
+    <!-- https://codepen.io/thebabydino/pen/dyOvmRY
+    Created for my Taming Blend Modes: `difference` and `exclusion` (https://css-tricks.com/taming-blend-modes-difference-and-exclusion/) article on CSS-Tricks - check it out for context! -->
+
+    <!-- 5 underused CSS properties, values, and selectors
+    https://www.youtube.com/watch?v=qqaSJRNP8lQ&t=471s -->
+
+
+    <div class="content flow">
+        <h1>CSS Blend Mode - difference</h1>
+        <div class="columns flow">
+
+            <p>Hello, <a href='https://solarsystem.nasa.gov/planets/earth/overview/' target='_blank'>World</a>!</p>
+
+            
+        </div>
+    </div>
+
+    
+
+
+</body>
+</html>

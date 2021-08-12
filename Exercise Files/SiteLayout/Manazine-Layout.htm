@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a magazine layout with CSS</title>
+
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Heebo&family=Oswald&display=swap');
+
+        :root {
+            --ff-body:'Heebo', sans-serif;
+            --ff-heading:'Oswald', sans-serif;
+
+            --clr-primary-400: hsl(60 100% 50%);
+            --clr-neutral-900: hsl(0% 0% 0%);        
+            --clr-neutral-100: hsl(0% 0% 100%);
+
+            --fs-xl:clamp(3rem, 1rem + 10vw, 10rem);
+            --fs-600: 2rem;
+            --fs-500: 1.5rem;
+            --fs-400: 1.125rem;
+
+        }
+
+        body, h1, h2,h3, blockquote, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        *, 
+        *::before, 
+        *::after {
+            box-sizing: border-box;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .flow  > * + * {
+            margin-top: var(--flow-spacer, 1em);
+
+        }
+
+        body {
+            font-family: var(--ff-body);
+            font-size: var(--fs-400);
+            line-height: 1.6;
+        }
+
+        h1,
+        .lead,
+        blockquote {
+            font-family: var(--ff-heading);
+            font-weight: 900;
+        }
+
+        h1 {
+            font-size: var(--fs-xl);
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        article {
+            display: grid;
+        }
+
+        article > *:not(img) {
+            padding: 0 2rem;
+        }
+
+        .lead {
+            font-size: var(--fs-500);
+            max-width: 35ch;
+        }
+
+        .article-body {
+            columns: 2 30ch;
+
+            /* USE only for 3 columns */
+            /* columns: 3 10ch; */
+
+            gap: 4rem;
+            max-width: 100ch;
+            column-rule: 2px solid red;
+        }
+
+        .article-body > p:first-child::first-letter {
+            color: red;
+            font-weight: 750;
+            font-size: 6em;
+            background: var(--clr-primary-400);
+            padding: 0.05em;
+            margin-right: 0.05em;
+            border: 5px solid;
+            float:left;
+        }
+
+        .article-body > p:first-child::first-line {
+            font-weight: 750;
+            text-transform: uppercase;
+        }
+
+        /* Use only if paragraph need to be in the same column
+        .article-body p {
+            border: 1px solid black;
+            break-inside: avoid;
+        } */
+
+        @media (min-width: 50em) {
+
+            article {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            article > img {
+                grid-row: 1 / 4;
+                height: 100%;
+                object-fit:cover;
+            }
+
+            article > *:not(img) {
+                grid-column: 2 / -1;
+            }
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<!--     
+    Creating a magazine layout with CSS
+    https://www.youtube.com/watch?v=QJz81yva7r0&t=0s 
+-->
+
+    <main>
+        
+        <article>
+            <img src="https://images.ctfassets.net/u4vv676b8z52/2DwKmc49gOK8xxrxOisudo/650d40dbdc8e4347db185630b464ed03/hero-famous-men-eyeglasses-johnny-depp-678x446.jpg?fm=jpg&q=80" alt="man with glasses">
+            <h1>Chip Kidd</h1>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam dolor repellat quos magnam perspiciatis odit, sed, aperiam nostrum tempora fuga obcaecati, ratione ab id temporibus. Eveniet labore ut tempore earum?</p>
+
+            <div class="article-body flow">
+                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat tempora vero unde repellat consectetur reprehenderit dolores incidunt. Blanditiis quae, error nisi ullam incidunt hic laudantium totam voluptatem nihil molestias laboriosam?</p>   
+                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt unde nulla officia sed officiis? Perspiciatis qui, inventore minus, veritatis ab recusandae, impedit vero distinctio autem ducimus nisi aliquid excepturi quis.</p>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis neque commodi porro a? Omnis, provident. Placeat id nihil, ipsa consequuntur eaque aliquid natus, necessitatibus ab quis commodi, beatae aperiam exercitationem?</p>
+                 <blockquote>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga architecto quaerat debitis ipsum dignissimos earum doloribus corporis enim nobis magni numquam minima, dolores ratione aperiam temporibus ea. Qui, soluta minus.</blockquote>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsa facere at aut distinctio eligendi dolorum nostrum eos, perspiciatis, veniam ab beatae quia aspernatur earum odit repellendus alias exercitationem voluptatibus?</p>
+
+            </div>
+
+        </article>
+
+    </main>
+    
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Columns with CSS</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Cormorant+Infant:700,700i|Lato:400,700');
+
+        :root {
+        --ff-primary: basic-sans, sans-serif;
+        --clr-primary: #ee6352;
+        --clr-body: #333;
+        --clr-bg: #ddd;
+        --spacer: 1rem;
+
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        .title {
+            color: var(--clr-primary);
+            text-align: center;
+            font-weight: 900;
+        }
+
+        body {
+            font-family: var(--ff-primary);
+            min-height: 100vh;
+            font-size: 1em;
+            line-height: 1.6;
+            background-color: var(--clr-bg);
+            color: var(--clr-body);
+        }
+
+        .flow > * + * {
+            margin-top: var(--spacer);
+        }
+
+        a {
+            color: var(--clr-primary);
+        }
+
+         /* to center content    */
+        .content {
+            width: 70vw;
+            margin: 2rem auto;
+            padding: 3em;
+            box-shadow: 0 0 3em rgba(0,0,0,0.3);
+            background: white;
+
+        }
+
+        .columns {
+            columns: 25ch 3;
+            gap: 2em;
+        }
+
+        .card {
+
+            padding: .5em;
+            border: 1px solid;
+            break-inside: avoid;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+<!--     
+    5 underused CSS properties, values, and selectors
+    https://www.youtube.com/watch?v=qqaSJRNP8lQ&t=471s 
+-->
+
+ <div class="content flow">
+    <h1>CSS Columns</h1>
+    <div class="columns flow">
+        <p class="intro">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus voluptatem necessitatibus eum nisi, alias impedit blanditiis eius accusantium. Praesentium, neque?</p>
+        <p>Eveniet quos iusto incidunt repudiandae quasi velit maxime commodi facilis repellendus quas! Ullam sint officiis nisi recusandae, ex placeat quia!</p>
+        <p>Alias, dolorem nihil voluptate possimus aut beatae eaque ut aliquid quam quos blanditiis quis cumque adipisci ipsa ex est mollitia.</p>
+        <p>Culpa animi modi dolore eius architecto. Temporibus, explicabo! Ullam quo consectetur quis nemo a? Libero consequatur quis nostrum. Praesentium, nobis!</p>
+    </div>
+</div>
+
+<div class="content flow">
+    <h1>CSS Columns</h1>
+    <div class="columns flow">
+
+        <div class="card">
+            <h2>Title</h2>
+            <p class="intro">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus voluptatem necessitatibus eum nisi, alias impedit blanditiis eius accusantium. Praesentium, neque?</p>
+        </div>
+        
+        <div class="card">
+            <h2>Title</h2>
+            <p>Eveniet quos iusto incidunt repudiandae quasi velit maxime commodi facilis repellendus quas! Ullam sint officiis nisi recusandae, ex placeat quia!</p>
+        </div>
+        
+        <div class="card">
+            <h2>Title</h2>
+            <p>Alias, dolorem nihil voluptate possimus aut beatae eaque ut aliquid quam quos blanditiis quis cumque adipisci ipsa ex est mollitia.</p>
+        </div>
+
+        <div class="card">
+            <h2>Title</h2>
+            <p>Culpa animi modi dolore eius architecto. Temporibus, explicabo! Ullam quo consectetur quis nemo a? Libero consequatur quis nostrum. Praesentium, nobis!</p>
+        </div>
+        
+    </div>
+</div>
+
+
+
+</body>
+</html>

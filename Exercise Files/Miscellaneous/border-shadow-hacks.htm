@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Shadow Hacks</title>
+
+    <style>
+
+        :root{
+            --clr-primary: #ee6352;
+            --clr-body: #333;
+            --clr-bg: #ddd;
+        }
+
+        body {
+            font-family: basic-sans, sans-serif ;
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.125em;
+            line-height: 1.6;
+            color: var(--clr-body);
+            background: var(--clr-bg);
+        }
+
+        .content {
+            background: white;
+            width: 70vw;
+            padding: 3em;
+            box-shadow: 0 0 3em rgba(0,0,0, 0.15);
+        }
+
+        .title {
+            margin: 0 0 .5em;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 3rem;
+            color: var(--clr-primary);
+            line-height: .8;
+            text-align: center;
+
+        }
+
+        p {
+            color: black;
+        }
+
+        a {
+            color: var(--clr-primary);
+        }
+
+        .All-samples {
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+        }
+
+
+        [class*="box-shadow"] {
+
+            width: 50px;
+            height: 50px;
+            padding: 1%;
+            outline: 1px solid black;
+            border-radius: 50%;
+        }
+
+        /* using abjacent selector */
+
+        [class*="box-shadow"] + div {
+            margin-left: 120px;
+        }
+        
+        .box-shadow-basic-sample1 {
+            box-shadow: 0 0 0 20px red,
+                        0 0 0 40px blue,
+                        0 0 0 60px yellow;
+        }
+
+
+        .box-shadow-basic-sample2 {
+            box-shadow: inset 0 0 0 10px red,
+                        inset 0 0 0 20px blue,
+                        inset 0 0 0 40px yellow;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+    <div class="content">
+        <h1 class="title">Border shadow hacks</h1>
+
+        <div class="All-samples">
+    
+            <div class="box-shadow-basic-sample1">
+                <h1>sample #1</h1>
+            </div>
+    
+            <div class="box-shadow-basic-sample2">
+                <h1>sample #2</h1>
+            </div>
+
+        </div>
+        
+    </div>
+
+
+</body>
+</html>

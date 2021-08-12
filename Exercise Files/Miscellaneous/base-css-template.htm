@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>base CSS HTML Template</title>
+
+    <style>
+
+        :root{
+            --clr-primary: #ee6352;
+            --clr-body: #333;
+            --clr-bg: #ddd;
+        }
+
+        body {
+            font-family: basic-sans, sans-serif ;
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.125em;
+            line-height: 1.6;
+            color: var(--clr-body);
+            background: var(--clr-bg);
+        }
+
+        .content {
+            background: white;
+            width: 70vw;
+            padding: 3em;
+            box-shadow: 0 0 3em rgba(0,0,0, 0.15);
+        }
+
+        .title {
+            margin: 0 0 .5em;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 3rem;
+            color: var(--clr-primary);
+            line-height: .8;
+
+        }
+
+        p {
+            color: black;
+        }
+
+        a {
+            color: var(--clr-primary);
+        }
+
+        a:hover,
+        a:focus
+        {
+            /* filter: brightness(200%); */
+            /* get complementary color */
+            filter: hue-rotate(180deg);
+            
+        }
+
+        .dark-bg {
+            background-color: #3378a3;
+            padding: 1em;
+        }
+
+        .dark-bg > p {
+            color: white;
+            opacity: 0.7;
+            filter: s
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="content">
+        <h1 class="title">Using filter()</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="#">Magni libero architecto</a> incidunt ex quas perferendis quia cumque ab sint cupiditate.</p>
+        
+        <div class="dark-bg">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ad aspernatur corrupti dolores deserunt! Tempore fugiat, obcaecati voluptates exercitationem vel fugit laborum unde hic placeat, quod sed maxime optio eum!</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
