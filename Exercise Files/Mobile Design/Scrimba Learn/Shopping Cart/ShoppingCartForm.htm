@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proportional Design</title>
+
+    <style>
+        :root {
+            --headerFontSize: 2rem;
+            --headerPadding: 0.5rem;
+            --footerFontSize: 1rem;
+            --FooterPadding: 1rem;
+            --headerBGColor: lightgreen;
+            --mainBGColor:lightblue;
+            --footerBGColor: lightgreen;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--headerBGColor);
+            font-size: var(--headerFontSize);
+            padding: var(--headerPadding);
+            text-align: center;
+        }
+
+        main {
+            background-color: var(--mainBGColor);
+            font-size: 1.5rem;
+            text-align: center;
+            height: calc(100vh - 0.9rem - var(--headerFontSize) - var(--footerFontSize) - (2*var(--headerPadding)) - (2*var(--FooterPadding)));
+            overflow-y: auto;
+        }
+
+        footer {
+            background-color: var(--footerBGColor);
+            font-size: var(--footerFontSize);
+            padding: var(--FooterPadding);
+            text-align: center;
+        }
+
+        .product {
+            font-size: 1.8rem;
+            display: flex;
+            padding: 0.5rem;
+            margin: 0.4rem;
+            border: 0.1rem solid black;
+            background-color: lightgreen;
+        }
+
+        .product div {
+            width: calc(100%/3);
+        }
+
+        
+
+    </style>
+
+</head>
+<body>
+    
+<header>
+    Shopping Cart 🛒
+</header>
+
+<main id="ShoppingCart">
+    <!-- p*2>lorem30 -->
+
+    <div id="Products"></div>
+    <div id="Summary"></div>
+</main>
+
+<footer>
+    Awesome Shopping Cart
+</footer>
+
+<script src="shoppingcart.js"></script>
+</body>
+</html>
