@@ -1,0 +1,16 @@
+<svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Container" clip-path="url(#clip0)">
+<g id="light_group">
+<path id="light1" d="M47 47.5L8 72.1817V22.8183L47 47.5Z" fill="#80E9FF" fill-opacity="0.6"/>
+</g>
+<g id="dark_group">
+<path id="dark2" opacity="0.8" d="M66 47.5L27 72.1817V22.8183L66 47.5Z" fill="#6383F3"/>
+<path id="dark1" opacity="0.8" d="M47 47.5L8 72.1817V22.8183L47 47.5Z" fill="#6383F3"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="120" height="100" fill="white"/>
+</clipPath>
+</defs>
+</svg>

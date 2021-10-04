@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proportional Design</title>
+
+    <style>
+        :root {
+            --headerFontSize: 2rem;
+            --headerPadding: 0.5rem;
+            --footerFontSize: 1rem;
+            --FooterPadding: 1rem;
+            --headerBGColor: lightgreen;
+            --mainBGColor:lightblue;
+            --footerBGColor: lightgreen;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--headerBGColor);
+            font-size: var(--headerFontSize);
+            padding: var(--headerPadding);
+            text-align: center;
+        }
+
+        main {
+            background-color: var(--mainBGColor);
+            font-size: 1.5rem;
+            text-align: center;
+            height: calc(100vh - 0.5rem - var(--headerFontSize) - var(--footerFontSize) - (2*var(--headerPadding)) - (2*var(--FooterPadding)));
+            overflow-y: auto;
+        }
+
+        footer {
+            background-color: var(--footerBGColor);
+            font-size: var(--footerFontSize);
+            padding: var(--FooterPadding);
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    
+<header>
+    Header
+</header>
+
+<main>
+    Main Body
+
+    <!-- p*2>lorem30 -->
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium illum facilis, expedita officiis delectus voluptatibus quibusdam non nemo dolor velit? Nostrum nisi perferendis laudantium nesciunt necessitatibus tempore quaerat exercitationem ducimus. Sint soluta, tenetur architecto ipsum voluptatibus id corrupti vel odit atque expedita consequatur fuga voluptatem est sed aut. Consectetur, aut.</p>
+    <p>Sequi expedita necessitatibus alias, accusantium maiores dolore praesentium, in neque ex quia debitis saepe a facilis cum hic nostrum nulla velit accusamus iste dolor exercitationem et totam! Ut praesentium quis voluptate dolor magni sunt quia accusamus officia. Alias non enim pariatur sunt autem dolorum dignissimos. Nam corporis quasi commodi dolorem!</p>
+    <p>Animi veritatis nesciunt commodi beatae voluptatem ex quisquam temporibus molestiae. Deserunt alias facere eaque! Incidunt possimus illo quasi, voluptas autem modi voluptatem hic minus eum, ad ut nesciunt ipsum non quae consequatur cum magnam ipsa voluptates cumque quisquam natus. Cum corrupti aperiam quod nobis? Ea ipsa tenetur ab vero quia?</p>
+    <p>Blanditiis ratione fugit ex quo ipsum iusto odit magnam earum debitis amet reprehenderit id, perspiciatis porro aliquam quam commodi, harum maiores dignissimos veniam laudantium culpa. Dicta, rerum? Dolorum similique aperiam sequi iure aut repellat laborum earum dolores quibusdam magni dolor iusto accusantium facilis nostrum, ipsa quia officiis facere esse id?</p>
+    <p>Quasi eius neque velit architecto earum totam nisi beatae! Omnis sed mollitia labore tenetur provident autem obcaecati illum fugit ducimus quia enim ullam alias perferendis nisi, impedit soluta explicabo praesentium, vero tempora quisquam molestiae? Cupiditate consequuntur eaque voluptatum, dolor animi quas adipisci debitis exercitationem quidem harum ex distinctio velit sunt!</p>
+
+    
+</main>
+
+<footer>
+    Footer
+</footer>
+
+</body>
+</html>
