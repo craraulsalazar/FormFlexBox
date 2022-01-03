@@ -1,0 +1,235 @@
+:root {
+  --font-size: 100px;
+  --left: 0;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+}
+
+.banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.panel {
+  width: 21px;
+  height: 100px;
+  border: 1px solid white;
+  position: relative;
+  overflow: hidden;
+  -webkit-animation: rotate 6s var(--delay) infinite ease-in-out alternate;
+          animation: rotate 6s var(--delay) infinite ease-in-out alternate;
+}
+
+@-webkit-keyframes rotate {
+  0%, 10% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  90%, 100% {
+    -webkit-transform: rotateX(720deg);
+            transform: rotateX(720deg);
+  }
+}
+
+@keyframes rotate {
+  0%, 10% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  90%, 100% {
+    -webkit-transform: rotateX(720deg);
+            transform: rotateX(720deg);
+  }
+}
+
+.panel::before {
+  position: absolute;
+  left: var(--left);
+  font-size: 100px;
+  content: 'Hello World';
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  color: hsl(var(--hue), 75%, 75%);
+}
+
+.panel:nth-child(1) {
+  --left: 0px;
+  --hue: 0;
+  --angle: 0deg;
+  --delay: 0s;
+}
+
+.panel:nth-child(2) {
+  --left: -21px;
+  --hue: 15;
+  --angle: 15deg;
+  --delay: 0.1s;
+}
+
+.panel:nth-child(3) {
+  --left: -42px;
+  --hue: 30;
+  --angle: 30deg;
+  --delay: 0.2s;
+}
+
+.panel:nth-child(4) {
+  --left: -63px;
+  --hue: 45;
+  --angle: 45deg;
+  --delay: 0.3s;
+}
+
+.panel:nth-child(5) {
+  --left: -84px;
+  --hue: 60;
+  --angle: 60deg;
+  --delay: 0.4s;
+}
+
+.panel:nth-child(6) {
+  --left: -105px;
+  --hue: 75;
+  --angle: 75deg;
+  --delay: 0.5s;
+}
+
+.panel:nth-child(7) {
+  --left: -126px;
+  --hue: 90;
+  --angle: 90deg;
+  --delay: 0.6s;
+}
+
+.panel:nth-child(8) {
+  --left: -147px;
+  --hue: 105;
+  --angle: 105deg;
+  --delay: 0.7s;
+}
+
+.panel:nth-child(9) {
+  --left: -168px;
+  --hue: 120;
+  --angle: 120deg;
+  --delay: 0.8s;
+}
+
+.panel:nth-child(10) {
+  --left: -189px;
+  --hue: 135;
+  --angle: 135deg;
+  --delay: 0.9s;
+}
+
+.panel:nth-child(11) {
+  --left: -210px;
+  --hue: 150;
+  --angle: 150deg;
+  --delay: 1s;
+}
+
+.panel:nth-child(12) {
+  --left: -231px;
+  --hue: 165;
+  --angle: 165deg;
+  --delay: 1.1s;
+}
+
+.panel:nth-child(13) {
+  --left: -252px;
+  --hue: 180;
+  --angle: 180deg;
+  --delay: 1.2s;
+}
+
+.panel:nth-child(14) {
+  --left: -273px;
+  --hue: 195;
+  --angle: 195deg;
+  --delay: 1.3s;
+}
+
+.panel:nth-child(15) {
+  --left: -294px;
+  --hue: 210;
+  --angle: 210deg;
+  --delay: 1.4s;
+}
+
+.panel:nth-child(16) {
+  --left: -315px;
+  --hue: 225;
+  --angle: 225deg;
+  --delay: 1.5s;
+}
+
+.panel:nth-child(17) {
+  --left: -336px;
+  --hue: 240;
+  --angle: 240deg;
+  --delay: 1.6s;
+}
+
+.panel:nth-child(18) {
+  --left: -357px;
+  --hue: 255;
+  --angle: 255deg;
+  --delay: 1.7s;
+}
+
+.panel:nth-child(19) {
+  --left: -378px;
+  --hue: 270;
+  --angle: 270deg;
+  --delay: 1.8s;
+}
+
+.panel:nth-child(20) {
+  --left: -399px;
+  --hue: 285;
+  --angle: 285deg;
+  --delay: 1.9s;
+}
+
+.panel:nth-child(21) {
+  --left: -420px;
+  --hue: 300;
+  --angle: 300deg;
+  --delay: 2s;
+}
+
+.panel:nth-child(22) {
+  --left: -441px;
+  --hue: 315;
+  --angle: 315deg;
+  --delay: 2.1s;
+}
+
+.panel:nth-child(23) {
+  --left: -462px;
+  --hue: 330;
+  --angle: 330deg;
+  --delay: 2.2s;
+}
+
+.panel:nth-child(24) {
+  --left: -483px;
+  --hue: 345;
+  --angle: 345deg;
+  --delay: 2.3s;
+}
+/*# sourceMappingURL=textAnimation_example2.css.map */

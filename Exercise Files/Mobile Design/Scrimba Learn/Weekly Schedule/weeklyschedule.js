@@ -28,7 +28,7 @@ d.setFullYear(2000);
 //console.log(d);
 
 let weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-let firstDay = new Date("3/4/2020")
+let firstDay = new Date("3/1/2020")
 
 function getNextDay(day){
     let nextDay = new Date(day);
@@ -58,7 +58,7 @@ function buildWeek(day) {
 
             let weekday = {
                 index: i,
-                date: null,
+                date: day,
                 tasks: generateTasks()
             }
 
@@ -70,5 +70,34 @@ function buildWeek(day) {
     )
 }
 
-
 //console.log(buildWeek(firstDay))
+
+let week = buildWeek(firstDay);
+
+let schedule = document.getElementById("weeklyschedule");
+let scheduleHtml = week.reduce((accum, day)=> {
+
+        return accum + `<div class="day">
+            <div>${weekdays[day.date.getDay()]} </div>
+            <div class="tasks">
+                ${tasksToHtml(day.tasks)}
+            </div>
+        </div>
+        `
+    }
+,'')
+
+schedule.innerHTML = scheduleHtml;
+
+function tasksToHtml(tasks) {
+    return tasks.reduce((accum, task) => {
+        return accum + `
+                <div class="circle-container ${task.complete ? 'checked':''} ">
+                    <div class="circle"></div>
+                    <label>${task.name}</label>
+                </div>
+        `
+    }
+    ,'')
+
+}

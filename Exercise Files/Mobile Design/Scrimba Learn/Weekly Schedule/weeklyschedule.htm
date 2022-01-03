@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule</title>
+
+    <link rel="stylesheet" href="weeklyschedule.css">
+    <link rel="stylesheet" href="tasks.css">
+
+    <style>
+
+        .day {
+
+            height: calc(var(--mainHeight)/3);
+        }
+
+        .day:nth-of-type(even) {
+            background-color: lightyellow;
+        }
+
+        .tasks {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+    </style>
+
+</head>
+<body>
+    <header>Weekly Schedule</header>
+    <main id="weeklyschedule">
+    </main>
+    <footer>Nice Weekly Schedule</footer>
+
+    <script src="weeklyschedule.js"></script>
+</body>
+</html>

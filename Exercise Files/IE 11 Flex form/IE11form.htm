@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE11 using Flex</title>
+
+    <style>
+
+        .support-form {
+            line-height: 1.4;
+            margin: 1rem auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .form-group {
+            background: #aacaa6;
+            border: 1px solid black;
+            padding: 1rem;
+            width: 40%;    
+        }
+
+        .support-form {
+            display: flex;
+            /*flex-wrap: wrap;*/
+            flex-direction: row;
+        }
+
+        .form-group-1
+        {
+            float:left;
+        }
+
+        .form-group-2
+        {
+            float:none;
+        }
+
+        .form-group-clear-float
+        {
+            clear:both;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <!-- 
+        check latest on Flex and EI 11
+        in here
+        canIuse.com
+
+     -->
+
+    <section class="support-form">
+        <section class="form-group-1">
+
+                <h3>Test Form in IE</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, ad provident quia aspernatur maxime aliquid atque reprehenderit laborum esse tenetur?
+                </p>
+                
+        </section>
+        <section class="form-group-2">
+
+            <h3>Test Form in IE</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, ad provident quia aspernatur maxime aliquid atque reprehenderit laborum esse tenetur?
+            </p>
+            
+        </section>
+
+    </section>
+    
+    <section class="form-group-clear-float">
+        <h1>Clear floats</h1>
+        <p>
+            Lorem ipsum dolor sit amet.
+        </p>
+    </section>
+
+</body>
+</html>

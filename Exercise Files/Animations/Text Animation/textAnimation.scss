@@ -1,0 +1,64 @@
+
+:root {
+    --font-size: 100px;
+    --left: 0;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    perspective: 500px;
+    perspective-origin: 50% calc(50% - 150px);
+}
+
+.banner {
+    display: flex;
+    transform-style: preserve-3d;
+    // animation: rotate 24s infinite ease-in-out;
+    // transform: rotateZ(30deg);
+    animation: rotate 24s infinite linear;
+}
+
+$width: 50px;
+
+.panel {
+    width: $width;
+    height: 100px;
+    // border: 1px solid white;
+    position: absolute;
+    transform: translate(-50%,-50%) rotateY(var(--angle)) translateZ(190px);
+    overflow: hidden;    
+    background-color: #fff4;
+    
+}
+
+// .panel:hover {
+//     transform: scale(1.5);
+// }
+
+@keyframes rotate {
+    //from {transform: rotateX(0deg);}
+    // 0%, 100% {transform:rotateZ(30deg);}
+    100% {transform: rotateY(360deg) ;}
+}
+
+.panel::before {
+    position: absolute;
+    left: var(--left);
+    font-size: 96px;
+    content: "Hello World, it's a nice day!";    
+    width: max-content;
+    color: hsl(var(--hue), 75%, 75%);
+}
+
+@for $i from 0 to 24 {
+    .panel:nth-child(#{$i+1}) {
+        --left: #{$width * $i * -1};
+        --hue: #{360/24 * $i};
+        --angle: #{360deg/24 * $i};
+    }
+}
+
