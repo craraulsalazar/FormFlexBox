@@ -17,6 +17,7 @@ let user = {
 }
 //console.log(user);
 //https://emojipedia.org/strawberry/
+//https://freesvg.org/the-sun
 
 let possibleProducts = ['🥝','🍋','🥭','🍓','🍑','🍊','🍍','🍐','🍇','🍉','🍌','🍒','🍅','🥑','🍎','🍏'];
 

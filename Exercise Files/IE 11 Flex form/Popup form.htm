@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup form using Javascript</title>
+
+    <style>
+
+        *, *::after, *::before {
+            box-sizing: border-box;
+        }
+
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0); /* half of .modal container (width as well as height) */
+            transition: 200ms ease-in-out;
+
+            border: 1px solid black;
+            border-radius: 10px;
+            z-index:10;
+            background-color: white;
+            width: 500px;
+            max-width: 80%;
+
+
+        }
+
+        .modal.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modal-header {
+            padding: 10px 15px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid black;
+        }
+
+        .modal-header .title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .modal-header .close-button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 0.5rem 1rem;
+        }
+
+        #overlay {
+            position: fixed;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: 200ms ease-in-out;
+            background-color: rgba(0,0,0, 0.4);
+            pointer-events: none;
+
+        }
+
+        #overlay.active {
+            opacity: 1;
+            pointer-events:all;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- Build a Popup With JavaScript
+    https://www.youtube.com/watch?v=MBaw_6cPmAw -->
+    
+    <button data-modal-target="#modal">Open Modal</button>
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Example Modal</div>
+            <button data-close-button  class="close-button">&times;</button>
+        </div>
+
+        <div class="modal-body">
+
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet labore dolor eum aliquam dicta aliquid ab cumque ad nihil distinctio neque deleniti mollitia explicabo reiciendis voluptates esse, asperiores minima temporibus.
+            Eveniet, voluptas, maxime magni illo autem porro accusamus magnam debitis quasi esse pariatur tempore. Blanditiis nihil reprehenderit recusandae, tempora magnam quisquam, odit explicabo doloribus ipsa distinctio eaque ad ea delectus.
+            Libero, consectetur! Praesentium ipsa laboriosam esse, architecto eaque iste nihil asperiores illo perferendis assumenda rerum quasi amet harum consectetur quo exercitationem ad veritatis ratione officiis! Eius quaerat veniam expedita nam?
+
+        </div>
+
+    </div>
+
+    <div class="" id="overlay">
+    </div>
+
+</body>
+
+
+<script>
+
+            
+    const openModalButtons = document.querySelectorAll('[data-modal-target]');
+    const closeModalButtons = document.querySelectorAll('[data-close-button]');
+    const overlay = document.getElementById('overlay');
+
+
+    console.log(openModalButtons);
+    
+
+    openModalButtons.forEach(button => {
+
+        button.addEventListener('click', () => {
+            
+                     const modal = document.querySelector(button.dataset.modalTarget);
+                     console.log(modal);
+                     openModal(modal);
+        
+                } )
+
+        }
+
+    );
+
+
+    closeModalButtons.forEach(button => {
+
+        button.addEventListener('click', () => {
+            
+                    const modal = button.closest('.modal');
+                    console.log(modal);
+                    closeModal(modal);
+
+                } )
+
+        }
+
+        );
+
+
+        overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active');
+            modals.forEach(modal => {
+                closeModal(modal);
+            });
+        })
+
+    function openModal(modal) {
+        if (!modal)
+        {
+            return;
+        }
+
+        console.log('Yo clicked me');
+
+        modal.classList.add('active');
+        overlay.classList.add('active');
+
+    }
+
+    function closeModal(modal) {
+        if (!modal)
+        {
+            return;
+        }
+
+        console.log('Yo clicked the close button');
+
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+
+    }
+
+</script>
+
+</html>

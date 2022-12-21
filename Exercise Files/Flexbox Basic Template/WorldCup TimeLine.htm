@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup TimeLine</title>
+
+    <style>
+
+        :root {
+
+            --field-width: 596px;
+            --button-size: 24px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            list-style: none;
+            line-height: 1;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        .main {
+            width: 90%;
+            background-color: transparent;      
+
+        }
+
+        .timeline__container {
+            position: relative;
+            z-index: 1;
+            padding-right: 20px;
+        }
+
+        .timeline__bar {
+        
+            display: block;
+            position: relative;
+            overflow: hidden;
+            padding-top: 7px;
+            padding-right: 20px;
+            padding-bottom: 7px;
+            min-width: 1210px;
+
+        }
+
+        .timeline__bar__timestamp {
+
+            font-family: Pill-Gothic-Bold, "Pill Gothic 300mg", Arial, Helvetica, sans-serif;
+            position: relative;
+            height: 20px;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: bold;
+            color: #323232;
+
+        }
+
+        .timeline__bar__timestamp__item {
+            position: absolute;
+            top: 50%;
+            padding-right: 5px;
+            padding-left: 5px;
+            white-space: nowrap;
+            background-color: #FFFFFF;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .timeline__bar__timestamp__item--kick-off {
+            padding-right: 5px;
+            padding-left: 0;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .translations--is-abbreviation {
+            text-decoration: none;
+        }
+
+        .timeline__bar__timestamp__item--end-time, 
+        .timeline__bar__timestamp__item--end-time-with-additional-minutes, 
+        .timeline__bar__timestamp__item--half-time, 
+        .timeline__bar__timestamp__item--kick-off {
+            font-size: 18px;
+        }
+
+        .timeline__bar__timestamp__item--end-time-with-additional-minutes {
+            padding-right: 5px;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .timeline__bar__progress-bar {
+            content: "";
+            display: block;
+            z-index: -1; 
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 6px;
+            background-color: #779b37;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-transition: width 0.5s ease-out;
+            -o-transition: width 0.5s ease-out;
+            transition: width 0.5s ease-out;
+        }
+
+        .timeline__bar__progress-bar__end {
+            content: "";
+            display: inline-block;
+            position: inherit;
+            top: 50%;
+            right: 0;
+            bottom: 0;
+            width: 5px;
+            height: 20px;
+            background-color: inherit;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+
+        /* header */
+        .timeline__team {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            left: var(--left);
+            min-width: 1210px;
+            height: 50px;
+        }
+
+
+        .image__container--is-country {
+            height: calc(var(--logo-size) / 3.2);
+            min-width: calc(var(--logo-size) / 2);
+        }
+
+        .image__container--competitor {
+            height: calc(var(--logo-size) / 2);
+            width: calc(var(--logo-size) / 2);
+        }
+
+        .image__container {
+            position: relative;
+        }
+
+        .timeline__event-markings {
+            position: relative;
+            min-height: 20px;
+        }
+
+        .timeline__event-markings__item {
+            position: absolute;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        .eq-large .timeline__circle--red-card, 
+        .eq-large .timeline__circle--yellow-card, 
+        .eq-large .timeline__circle--goal, 
+        .eq-large .timeline__circle--own-goal {
+            position: relative;
+        }
+
+
+        .timeline__icon {
+            display: block;
+            background-repeat: no-repeat;
+        }
+
+        .timeline__icon--goal, 
+        .timeline__icon--own-goal {
+            width: 22px;
+            height: 22px;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDI1IDI1Ij4KICAgIDxnIGRhdGEtbmFtZT0iU29jY2VyIGJhbGwiPgogICAgICAgIDxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMzgzIiBkPSJNMTEuMzIyIDBBMTEuMzIyIDExLjMyMiAwIDEgMSAwIDExLjMyMiAxMS4zMjIgMTEuMzIyIDAgMCAxIDExLjMyMiAweiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS4xNzggMS4xNzgpIiBzdHlsZT0iZmlsbDojZmZmIi8+CiAgICAgICAgPHBhdGggZGF0YS1uYW1lPSJQYXRoIDEzNzYiIGQ9Ik0xMi40OTYgOC41MTRhMjQuOTg1IDI0Ljk4NSAwIDAgMSAzLjggMi43MTcgMjAuMDEzIDIwLjAxMyAwIDAgMS0xLjQ0OSA0LjQzOCAxNy4xNzUgMTcuMTc1IDAgMCAxLTQuNzEgMCAxNy45NjkgMTcuOTY5IDAgMCAxLTEuNDQxLTQuNDM4IDIzLjIwOCAyMy4yMDggMCAwIDEgMy44LTIuNzE3eiIvPgogICAgICAgIDxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMzc3IiBkPSJNMjEuODMgNS45NzloLTEuNzIxYTcuNjQ3IDcuNjQ3IDAgMCAxIDAgNC4wNzYgNi44NDMgNi44NDMgMCAwIDEgMi4zNTUgMy4xNyA0LjQxNiA0LjQxNiAwIDAgMCAxLjM1OS0xLjI2OCAxMC44MzcgMTAuODM3IDAgMCAwLTEuOTkzLTUuOTc4eiIvPgogICAgICAgIDxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMzc4IiBkPSJNMy4xNjggNS45NzhoMS43MjFhNy42NDQgNy42NDQgMCAwIDAgMCA0LjA3NiA2Ljg0MyA2Ljg0MyAwIDAgMC0yLjM1MiAzLjE3MiA0LjQxMyA0LjQxMyAwIDAgMS0xLjM2LTEuMjY3IDEwLjgzOCAxMC44MzggMCAwIDEgMS45OTEtNS45ODF6Ii8+CiAgICAgICAgPHBhdGggZGF0YS1uYW1lPSJQYXRoIDEzNzkiIGQ9Im0zLjQ1IDE5LjM2MS41NTItMS42M2E3LjY0NCA3LjY0NCAwIDAgMCAzLjg2MSAxLjMwNyA2Ljg0NCA2Ljg0NCAwIDAgMCAyLjI0OCAzLjI0NyA0LjQxIDQuNDEgMCAwIDEtMS42MzcuODgxIDEwLjgzNyAxMC44MzcgMCAwIDEtNS4wMjQtMy44MDV6Ii8+CiAgICAgICAgPHBhdGggZGF0YS1uYW1lPSJQYXRoIDEzODAiIGQ9Ik0xNS45NjggMS43MzRhNC43NTQgNC43NTQgMCAwIDEgLjQ4NiAxLjY1MSA3LjY0NSA3LjY0NSAwIDAgMC0zLjkxMSAxLjE1QTYuODQ0IDYuODQ0IDAgMCAwIDguODM3IDMuMTdhNC40MSA0LjQxIDAgMCAxIC44MzQtMS42NjEgMTAuODM1IDEwLjgzNSAwIDAgMSA2LjI5Ny4yMjV6Ii8+CiAgICAgICAgPHBhdGggZGF0YS1uYW1lPSJQYXRoIDEzODEiIGQ9Ik0xNi4yMjkgMjMuMjU3YTQuNzU3IDQuNzU3IDAgMCAxLTEuMzgzLTEuMDI0IDcuNjQ1IDcuNjQ1IDAgMCAwIDIuNDI1LTMuMjc2IDYuODQzIDYuODQzIDAgMCAwIDMuNzc5LTEuMTQ3IDQuNDEyIDQuNDEyIDAgMCAxIC4zMzggMS44MjggMTAuODM1IDEwLjgzNSAwIDAgMS01LjE1OSAzLjYxOXoiLz4KICAgICAgICA8cGF0aCBkYXRhLW5hbWU9IlBhdGggMTM4MiIgZD0iTTU0OC41IDE1MC4xNzhhMTEuMzIyIDExLjMyMiAwIDEgMS0xMS4zMjMgMTEuMzIyIDExLjMyMiAxMS4zMjIgMCAwIDEgMTEuMzIzLTExLjMyMm0wLTEuMTc4YTEyLjUgMTIuNSAwIDEgMCA4LjgzOSAzLjY2MUExMi40MTkgMTIuNDE5IDAgMCAwIDU0OC41IDE0OXoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01MzYgLTE0OSkiIHN0eWxlPSJmaWxsOiM3NTc1N2IiLz4KICAgIDwvZz4KPC9zdmc+Cg==");
+            background-size: cover;
+        }
+
+        .eq-large .timeline__circle--red-card::before, 
+        .eq-large .timeline__circle--yellow-card::before, 
+        .eq-large .timeline__circle--goal::before, 
+        .eq-large .timeline__circle--own-goal::before {
+            content: "";
+            border: 1px solid #A3A3A3;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transition: opacity 0.1s ease-in-out;
+            -o-transition: opacity 0.1s ease-in-out;
+            transition: opacity 0.1s ease-in-out;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .timeline__exponent {
+            display: inline-block;
+            position: absolute;
+            top: -12px;
+            width: 11px;
+            height: 11px;
+            text-align: center;
+            font-size: 10px;
+            color: #FFFFFF;
+            background-color: #000;
+            border-radius: 50%;
+            left: 10px;
+        }
+
+
+        .timeline__icon--substitution {
+            width: 15.4px;
+            height: 16.8px;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNS4zNzUiIGhlaWdodD0iMTYuODQzIiB2aWV3Qm94PSIwIDAgMTUuMzc1IDE2Ljg0MyI+CiAgICA8cGF0aCBkPSJNMTEuMjIgNC4wNjEgOS45MDggNS40MjZhLjgwNy44MDcgMCAwIDAgMCAxLjEuNzA5LjcwOSAwIDAgMCAuNTMxLjIyN2g0LjE4NWEuNzA5LjcwOSAwIDAgMCAuNTMxLS4yMjcuNzY4Ljc2OCAwIDAgMCAuMjE5LS41NTJWMS42MjVhLjc2OC43NjggMCAwIDAtLjIxOS0uNTUyLjczNC43MzQgMCAwIDAtMS4wNjIgMGwtMS4xMjQgMS4xN0E3LjU3NCA3LjU3NCAwIDAgMCAxMC41MzMuNTg1IDcuMzQyIDcuMzQyIDAgMCAwIDcuNjI4IDBhNy4yNjYgNy4yNjYgMCAwIDAtMy40ODIuODYxIDcuOTczIDcuOTczIDAgMCAwLTIuNyAyLjM1NkE4LjEgOC4xIDAgMCAwIC4wMDcgNi41NjNhLjM3OS4zNzkgMCAwIDAgLjA3OC4zMDkuMzUxLjM1MSAwIDAgMCAuMy4xNDZoMS43OGEuMzY4LjM2OCAwIDAgMCAuMjUtLjA4MS4zOTMuMzkzIDAgMCAwIC4xMjUtLjIxMUE1LjMyNSA1LjMyNSAwIDAgMSA0LjQgMy43NTMgNC45OSA0Ljk5IDAgMCAxIDcuNjI4IDIuNmE1LjA2NCA1LjA2NCAwIDAgMSAxLjkyMS4zNzQgNS4yODUgNS4yODUgMCAwIDEgMS42NzEgMS4wODd6IiBzdHlsZT0iZmlsbDojMmQ2YzJkIi8+CiAgICA8cGF0aCBkYXRhLW5hbWU9IlBhdGgiIGQ9Ik0uNzUuMjZoNC4xODVhLjcwOS43MDkgMCAwIDEgLjUzMS4yMjcuNzY4Ljc2OCAwIDAgMSAuMjE5LjU1Mi43NjguNzY4IDAgMCAxLS4yMTkuNTUyTDQuMTU0IDIuOTU3YTUuMjg1IDUuMjg1IDAgMCAwIDEuNjcxIDEuMDg4IDUuMDY0IDUuMDY0IDAgMCAwIDEuOTIxLjM3NCA0Ljk5IDQuOTkgMCAwIDAgMy4yMzMtMS4xNTNBNS4zMjUgNS4zMjUgMCAwIDAgMTIuODM4LjI5MmEuMzkzLjM5MyAwIDAgMSAuMTI1LS4yMTEuMzY4LjM2OCAwIDAgMSAuMjQ5LS4wODFoMS43OGEuMzUxLjM1MSAwIDAgMSAuMy4xNDYuMzc5LjM3OSAwIDAgMSAuMDc4LjMwOUE4LjEgOC4xIDAgMCAxIDEzLjkzMSAzLjhhNy45NzMgNy45NzMgMCAwIDEtMi43IDIuMzU2IDcuMjY2IDcuMjY2IDAgMCAxLTMuNDgzLjg2MSA3LjM0MiA3LjM0MiAwIDAgMS0yLjktLjU4NSA3LjU3NCA3LjU3NCAwIDAgMS0yLjQ0My0xLjY1NmwtMS4xMjQgMS4xN2EuNzA5LjcwOSAwIDAgMS0uNTMxLjIyNy43MDkuNzA5IDAgMCAxLS41MzEtLjIyN0EuNzY4Ljc2OCAwIDAgMSAwIDUuMzk0VjEuMDRBLjc2OC43NjggMCAwIDEgLjIxOS40ODcuNzA5LjcwOSAwIDAgMSAuNzUuMjZ6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDkuODI1KSIgc3R5bGU9ImZpbGw6I2I5MGEwYSIvPgo8L3N2Zz4K");
+        }
+
+
+        /* black bar */
+        .eq-medium .event-advanced-stats__periods-container, 
+        .eq-large .event-advanced-stats__periods-container {
+            width: calc(var(--field-width) - 40px);
+        }
+
+        .event-advanced-stats__periods-container {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px 30px 40px;
+        }
+
+        .event-advanced-stats__periods-container {
+            margin-right: auto;
+            margin-left: auto;
+            width: calc(var(--field-width) - 20px);
+        }
+
+        .event-advanced-stats__periods {
+            font-family: Arial, Helvetica, sans-serif;
+            --button-size: 16px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .event-advanced-stats__periods::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            left: 0;
+            height: 2px;
+            background: #323232;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .eq-medium .event-advanced-stats__periods, .eq-large .event-advanced-stats__periods {
+            --button-size: 24px;
+            font-size: 16px;
+        }
+
+        .event-advanced-stats__periods__item__button--selected {
+            background-color: #FFFFFF;
+        }
+
+        .event-advanced-stats__periods__item__button {
+            position: relative;
+            width: var(--button-size);
+            height: var(--button-size);
+            border: 2px solid #323232;
+            border-radius: 50%;
+            background-color: #323232;
+            cursor: pointer;
+        }
+
+        .event-advanced-stats__periods__item__button__label {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            text-transform: uppercase;
+            color: #323232;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+    </style>
+
+</head>
+
+<body>
+    
+    <div class="main">
+
+        <div class="timeline__container" style="--left:0px;">
+
+            <div class="timeline__team timeline__team--home">
+
+                <figure class="bms-image__container image__container--competitor image__container--no-background image__container--is-country" style="--logo-size:56px;">
+                    <img src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=japan&amp;height=56&amp;width=56" alt="Japan" class="bms-image__image bms-image__image--image-loaded">
+                    <a href="https://www.tsn.ca/fifa-world-cup/team-page/japan?competitor_id=40878" aria-label="View competitor bio" class="bms-image__link">
+                    </a>
+                </figure>
+                
+                <ol class="timeline__event-markings">
+
+                    <li class="timeline__event-markings__item" style="z-index: 5; left: 35.8333%;">
+                        <div class="timeline__circle timeline__circle--goal">
+                            <span class="timeline__icon timeline__icon--goal"></span>
+                        </div><!----><!---->
+                    </li>
+
+                    <li class="timeline__event-markings__item" style="z-index: 4; left: 53.3333%;">
+                        <div class="timeline__circle timeline__circle--substitution">
+                            <span class="timeline__icon timeline__icon--substitution"></span>
+                        </div>
+                        <span class="bms-timeline__exponent">2</span>
+                        <!---->
+                    </li>
+
+                    <li class="timeline__event-markings__item" style="z-index: 3; left: 62.5%;">
+                        <div class="timeline__circle timeline__circle--substitution">
+                            <span class="timeline__icon timeline__icon--substitution"></span>
+                        </div><!----><!---->
+                    </li>
+
+                    <li class="timeline__event-markings__item" style="z-index: 2; left: 72.5%;">
+                        <div class="timeline__circle timeline__circle--substitution">
+                            <span class="timeline__icon timeline__icon--substitution"></span>
+                        </div><!----><!---->
+                    </li>
+
+                    <li class="timeline__event-markings__item" style="z-index: 1; left: 88.3333%;">
+                        <div class="timeline__circle timeline__circle--substitution">
+                            <span class="timeline__icon timeline__icon--substitution"></span>
+                        </div><!----><!---->
+                    </li>
+
+                </ol>
+
+
+            </div>
+
+            <div clas="timeline__wrapper">
+
+                <div class="timeline__bar">
+
+                        <ol class="timeline__bar__timestamp" style="left: 0%;">
+                            <li class="timeline__bar__timestamp__item timeline__bar__timestamp__item--kick-off" style="left: 0%;">
+
+                                <abbr title="Kick Off" class="translations translations--is-abbreviation">
+                                    KO
+                                </abbr>
+                            </li>
+
+                            <li class="timeline__bar__timestamp__item" style="left: 16.6667%;">
+                                15’
+                            </li>
+                            <li class="timeline__bar__timestamp__item" style="left: 28.5714%;">
+                                30’
+                            </li>
+
+                            <li class="timeline__bar__timestamp__item timeline__bar__timestamp__item--half-time" style="left: 42.8571%;">
+                                45’
+                            </li>
+
+                            <li class="timeline__bar__timestamp__item" style="left: 57.1429%;">
+                                60’
+                            </li>
+
+                            <li class="timeline__bar__timestamp__item" style="left: 71.4286%;">
+                                75’
+                            </li>
+
+                            <li class="timeline__bar__timestamp__item timeline__bar__timestamp__item--end-time-with-additional-minutes" style="left: 85.7143%;">
+                                90’
+                            </li>
+
+                            <li class="timeline__bar__timestamp__item" style="left: calc(100% - 31px);">
+                                105’
+                            </li>
+                        </ol>
+
+                        <span class="timeline__bar__progress-bar" style="width: 95.2381%;">
+                            <span class="timeline__bar__progress-bar__end">
+                            </span>
+                        </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="event-advanced-stats__periods-container">
+            <ol class="event-advanced-stats__periods">
+                
+                <li class="event-advanced-stats__periods__item">
+                    <button class="event-advanced-stats__periods__item__button event-advanced-stats__periods__item__button--selected">
+                        <span class="event-advanced-stats__periods__item__button__label">
+                            All
+                        </span>
+                    </button>
+                </li>
+
+                <li class="event-advanced-stats__periods__item">
+                    <button class="event-advanced-stats__periods__item__button">
+                        <span class="event-advanced-stats__periods__item__button__label">
+                            1
+                        </span>
+                    </button>
+                </li>
+
+                <li class="event-advanced-stats__periods__item">
+                    <button class="event-advanced-stats__periods__item__button">
+                        <span class="event-advanced-stats__periods__item__button__label">
+                        2
+                    </span>
+                    </button>
+                </li>
+                <li class="event-advanced-stats__periods__item">
+                    <button class="event-advanced-stats__periods__item__button">
+                        <span class="event-advanced-stats__periods__item__button__label">
+                        OT1
+                        </span>
+                    </button>
+                </li>
+                <li class="event-advanced-stats__periods__item">
+                    <button class="event-advanced-stats__periods__item__button">
+                        <span class="event-advanced-stats__periods__item__button__label">
+                            OT2
+                        </span>
+                    </button>
+                </li>
+
+            </ol>
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>

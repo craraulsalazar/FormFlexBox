@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Ticking</title>
+
+    <style>
+
+        @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+        /* The parent container, with perspective */
+        .container {
+            width: 400px;
+            height: 400px;
+            border: 2px solid white;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 800px;
+        }
+
+        /* The child element, with 3D tranforms preserved */
+        .clock {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: yellow;
+            border: 2px solid black;
+            border-radius: 50%;
+
+        }
+
+
+         /* .clock::after { 
+            content: '';
+            background: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 85px;
+            border-radius: 10%;
+            transform: translate(-50%,-100%) rotate(180deg);
+            transform-origin: center 100%; 
+        } 
+
+        .clock::before { 
+            content: '';
+            background: blue;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 60px;
+            border-radius: 10%;
+            transform: translate(-50%,-100%) rotate(0deg);
+            transform-origin: center 100%; 
+        } */
+
+
+         .clock::after { 
+            content: '';
+            background: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transform: translate(-50%,-50%);
+            
+        }
+
+        .h-hand {
+
+            background: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 85px;
+            border-radius: 10%;
+            transform: translate(-50%,-100%) rotate(0deg);
+            transform-origin: center 100%; 
+
+            animation: h-Hand-rotating 360s linear infinite;
+        }
+
+        @keyframes h-Hand-rotating {
+            100% {
+                transform: translate(-50%,-100%) rotate(360deg);
+            }
+        }
+
+        .m-hand {
+
+            background: blue;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 60px;
+            border-radius: 10%;
+            transform: translate(-50%,-100%) rotate(0deg);
+            transform-origin: center 100%; 
+
+            animation: m-Hand-rotating 30s linear infinite;
+        }
+
+        @keyframes m-Hand-rotating {
+            100% {
+                transform: translate(-50%,-100%) rotate(360deg);
+            }
+        }
+
+        .hour1 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(0deg) translateX(85px) rotate(0deg);
+        }
+
+
+        .hour2 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(30deg) translateX(85px) rotate(-30deg);
+        }
+
+        .hour3 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(60deg) translateX(85px) rotate(-60deg);
+        }
+
+        .hour4 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(90deg) translateX(85px) rotate(-90deg);
+        }
+
+        .hour5 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(120deg) translateX(85px) rotate(-120deg);
+        }
+
+        .hour6 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(150deg) translateX(85px) rotate(-150deg);
+        }
+
+        .hour7 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(180deg) translateX(85px) rotate(-180deg);
+        }
+
+
+        .hour8 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(210deg) translateX(85px) rotate(-210deg);
+        }
+
+        .hour9 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(240deg) translateX(85px) rotate(-240deg);
+        }
+
+        .hour10 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(270deg) translateX(85px) rotate(-270deg);
+        }
+
+        .hour11 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(300deg) translateX(85px) rotate(-300deg);
+        }
+
+
+        .hour12 {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) rotate(330deg) translateX(85px) rotate(-330deg);
+        }
+
+        
+        .hour-Hand {
+
+            position: absolute;
+            left: 50%;
+            width: 155px;
+            height: 539px;
+            
+            transform: translate(-49%,-49%) rotate(0deg) scale(12%);
+            transform-origin: center 100%;
+
+            background: transparent;
+            background: url("Hour-hand.png");
+            background-size: cover;
+
+            animation: hour-Hand-rotating 360s linear infinite;
+        }
+
+        @keyframes hour-Hand-rotating {
+            100% {
+                transform: translate(-50%,-50%) rotate(360deg) scale(12%);;
+            }
+        }
+
+        .second-Hand {
+
+            position: absolute;
+            left: 50%;
+            width: 100px;
+            height: 624px;
+            transform: translate(-50%,-50%) rotate(0deg) scale(12%);
+            transform-origin: center 100%;
+            background: transparent;
+            background: url("Minute-hand.png");
+            background-size: cover;
+
+            animation: minute-Hand-rotating 30s linear infinite;
+
+        }
+
+        @keyframes minute-Hand-rotating {
+            100% {
+                transform: translate(-50%,-50%) rotate(360deg) scale(12%);;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="clock">
+          <div class="hour1">3</div>
+          <div class="hour2">4</div>
+          <div class="hour3">5</div>
+          <div class="hour4">6</div>
+          <div class="hour5">7</div>
+          <div class="hour6">8</div>
+          <div class="hour7">9</div>
+
+          <div class="hour8">10</div>
+          <div class="hour9">11</div>
+          <div class="hour10">12</div>
+          <div class="hour11">1</div>
+          <div class="hour12">2</div>
+
+          <div class="h-hand"></div>
+          <div class="m-hand"></div>
+
+        </div>
+
+        <!-- <div class="hour-Hand"></div>
+        <div class="second-Hand"></div> -->
+    </div>
+
+
+</body>
+</html>

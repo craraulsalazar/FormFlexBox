@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perspective Origin examples</title>
+
+    <style>
+
+        .main {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            border: 2px solid white;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 800px;
+            outline-color: red;
+            outline-style: solid;
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        .perspective-origin-Top-Right {
+            perspective-origin: top right;
+        }
+
+        .perspective-origin-Top-Left {
+            perspective-origin: top left;
+        }
+
+        .perspective-origin-Top-Center {
+            perspective-origin: top center;
+        }
+
+        .perspective-origin-Bottom-Right {
+            perspective-origin: bottom right;
+        }
+
+        .perspective-origin-Bottom-Left {
+            perspective-origin: bottom left;
+        }
+
+        .perspective-origin-Bottom-Center {
+            perspective-origin: bottom center;
+        }
+
+        .perspective-origin-Center-Center {
+            perspective-origin: center center;
+        }
+
+        .perspective-origin-Center-Left {
+            perspective-origin: center left;
+        }
+
+        .perspective-origin-Center-Right {
+            perspective-origin: center right;
+        }
+
+        .perspective-origin-5050 {
+            perspective-origin: 50% 50%;
+        }
+
+        .perspective-origin-5025 {
+            perspective-origin: 50% 25%;
+        }
+
+        .perspective-origin-5075 {
+            perspective-origin: 50% 75%;
+        }
+
+
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+        }
+
+        /* The sides of the cube, absolutely positioned */
+        .side {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+            border: 2px solid white;
+        }
+
+
+        /* Background colors for the cube's sides to help visualize the work */
+        .front { background-color: rgba(255,0,0,0.5); } */
+        .back { background-color: #aa00ff; }
+
+        .left { background-color: #304ffe; }
+        .right { background-color: #0091ea; }
+
+        .top { background-color: #00bfa5; }
+        .bottom { background-color: #64dd17; }
+
+
+        .front {
+            background-color:rgba(255,0,0,0.5);
+            transform: translateZ(200px);
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="main">
+
+        <div class="container perspective-origin-Top-Right" >
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+            
+        </div>
+
+        <div class="container perspective-origin-Top-Left">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+        <div class="container perspective-origin-Top-Center">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+
+        <div class="container perspective-origin-Bottom-Right">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+        <div class="container perspective-origin-Bottom-Left">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+        <div class="container perspective-origin-Bottom-Center">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+        <div class="container perspective-origin-Center-Left">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+        <div class="container perspective-origin-Center-Right">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+        <div class="container perspective-origin-Center-Center">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+        <!-- by percentage -->
+        <div class="container perspective-origin-5050">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+        <div class="container perspective-origin-5025">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+        <div class="container perspective-origin-5075">
+            <div class="cube">
+            <div class="side front"></div>
+            <div class="side back"></div>
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="side top"></div>
+            <div class="side bottom"></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

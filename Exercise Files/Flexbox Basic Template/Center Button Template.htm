@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Center buttons</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .main {
+            width: 90%;
+            background-color: yellow;                
+        }
+
+        .center-all-controls {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            
+        }
+
+        .center-buttons {
+            display: flex;            
+            gap: 2rem;
+            align-items: center;
+            justify-content:space-between;
+            justify-content:center;
+        }
+
+        .btn {
+            margin: 10px;
+        }
+
+        .errorMessage, .ProcessCompletedMessage {
+            color: red;
+            font-size: 0.8rem;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="main">
+
+
+        <div class="center-all-controls" >
+
+            <button id="uploadControl">Upload Control</button>
+
+            <div class="DropZone1">
+                <p>Custom Drop Zone</p>
+                <p>Drop Files Here</p>
+            </div>
+
+            <label class="errorMessage">File Name not found (2698702_FluShot_20220921011154.pdf)
+                <br>
+                File Name not found (2698702_Cancer_20220921011154.pdf)
+
+            </label>
+
+            <label class="ProcessCompletedMessage">
+                The upload was succesfull, please. click cancel to close window
+
+            </label>
+
+            <div class="center-buttons">
+                <button class="btn">Upload Files</button>
+                <button class="btn">Cancel</button>
+            </div>
+        
+        </div>
+
+    </div>
+
+</body>
+</html>
