@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Well Known Tricks</title>
+
+    <style>
+
+        
+
+        /*
+             Isolation will create a stacking context 
+             so, the quotes will not get futher back of the stack
+        
+        */
+
+        .isolation {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .isolation::before {
+            content: open-quote;
+            font-family: sans-serif;
+            font-weight: 900;
+            font-size: 15rem;
+            color: #3c3c3c;
+            position: absolute;
+            top: -8.5rem;
+            left: -2.5rem;
+            z-index: -1;
+        }
+
+        main {
+            background: grey;
+            margin: auto;
+            padding: 5rem;
+            color: white;
+        }
+
+        section {
+            margin-top: 0rem;
+            margin-bottom: 6rem;
+
+            counter-increment: section-counter;
+        }
+
+        .inset-section {            
+            position: relative;
+            border: 5px dotted yellow;
+        }
+
+
+        .inset {
+            position: absolute;
+
+            /* top: 1rem;
+            right: 2rem;
+            bottom: 1rem;
+            left: 50%; */
+
+            inset: 1rem 1rem 1rem 50%;
+
+            background-color: purple;
+            padding: 1rem;
+        }
+
+        .section-title::before {
+            content: counter(section-counter) ". "
+
+        }
+
+    </style>
+    
+</head>
+<body>
+    
+    <!-- Command Palette - Control + Shift + P -->
+    <!-- Activate Word Wrapping - Alt + Z  -->
+
+    <!-- 5 super useful CSS properties that don't get enough attention -->
+    <!-- https://www.youtube.com/watch?v=o1HzOJfgugE -->
+
+    <!-- section.isolation-section>div.wrapper>h2.section-title+div.isolation>plorem4-->
+    <header>5 super useful CSS properties that don't get enough attention</header>
+    <main>
+        
+        <section class="isolation-section">
+            <div class="wrapper">
+                <h1 class="section-title">Isolation</h1>
+                <div class="isolation">
+                    
+                    <p>The  <code>isolation</code> property is used to create a new stacking context without any other side effects</p>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="inset-section">
+            <div class="wrapper">
+                <h1 class="section-title">Inset</h1>
+                
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis temporibus eum facilis quos deleniti aliquid reiciendis, sit excepturi adipisci sint magni nam, aut optio deserunt, esse iusto ipsum rem. Quas magnam aspernatur ipsa quia et repellat soluta excepturi deleniti, eos dolorem, minima repellendus culpa rem reprehenderit, doloribus dignissimos debitis ipsum.</p>
+
+                <div class="inset">Simple example</div>
+
+            </div>
+        </section>
+
+        <section class="counter-section">
+            <div class="wrapper">
+                <h1 class="section-title">Counters</h1>
+                
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, autem.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, illum?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, reprehenderit.</p>
+
+                
+            </div>
+        </section>
+        
+
+    </main>
+
+</body>
+</html>

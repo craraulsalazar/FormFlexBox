@@ -43,3 +43,41 @@ let cartTotal = products.reduce(function(accumulator, product){
 }, 0
 ).toFixed(2);
 
+/*
+Cool emojies for work
+
+👨‍💻  //guy working in computer
+🍩  //donut
+🥙 //shawarma
+🙈🙉🙊 //all monkeys
+👽 //alien
+🚽  //toilet
+💩 //poop emojie
+🧝‍♂️  //elf
+🎅  //santa claus
+
+💀  //SKULL
+🤖 //ROBOT
+👺 //GOBLING
+👻 //GHOST
+🕷️ //spider
+👅 //tongue
+🎃 // Jack o lantern
+⚙️ //Gear
+👨‍🏭 //man working
+🧑🏻‍🏭 //working
+
+👋  //waiving good bye
+🖖  //vulcan salute
+🤘  //signs of horns
+🤙 //call me
+👍  //thumps up
+👌 //ok, victory
+✌️ //victory
+👏 //clapping
+🙋‍♂️ Man raising hand Man raising hand
+🤷 // person shrugging
+
+
+
+*/

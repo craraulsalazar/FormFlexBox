@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Responsive layouts in 11 minutes</title>
+
+    <style>
+
+        p {
+
+           padding: 0;
+           margin: 0; 
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            color: white;
+        }
+
+         .parent {
+            outline: 5px solid hotpink;
+            padding: 1rem;
+         }
+        
+         .parent > div {
+            background-color: blue;
+            outline: 3px solid lightblue;
+            padding: 0.5rem;
+         }
+
+         /* Layout #1 - the cluster style */
+         .cluster {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+         }
+
+         /* Layout #2 - the auto-grid style */
+         .auto-grid {
+            --min-column-size: 22rem;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(--min-column-size,100%), 1fr));
+         }
+
+         /* Layout #2 - the flex-grid style */
+         .flexible-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+         }
+
+         .flexible-grid > *
+         {
+            flex: 1;
+         }
+
+        /* Layout #3 - the reel style */
+         .reel {
+            --gap: 1rem;
+            display: grid;
+            gap: 1rem;
+            grid-auto-flow: column;
+            grid-auto-columns: calc(50% - (var(--gap)/2));
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-padding: var(--gap);
+         }
+
+         .reel > * {
+            scroll-snap-align: start;
+         }
+
+
+         .main-with-slider {
+            display: flex;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 1em;
+         }
+
+         .main-with-slider .children > p  {
+            margin: 0.7em;
+         }
+
+         .main-with-slider > :first-child {
+
+            flex-basis: 700px;
+            flex-grow: 9999;
+         }
+
+         .main-with-slider > :last-child {
+            flex-basis: 200px;
+            flex-grow: 1;
+         }
+
+    </style>
+
+</head>
+<body>
+    
+<!-- Simulating mobile layout 2 columns with Flex rather than media queries -->
+
+ <!-- p*10>lorem12 -->
+<!-- p*4>lorem5 -->
+
+<!-- <div class="main-with-slider parent">
+    <div class="children">        
+       
+
+        <h2>Lorem ipsum dolor, sit amet consectetur adipisicing.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nesciunt maiores ut!</p>
+        <p>Eos laborum molestiae quasi ex incidunt fuga cupiditate delectus repellat non magni?</p>
+        <p>Accusamus harum magni, ut enim modi hic dolores praesentium facilis dicta rerum?</p>
+        <p>Quod, temporibus iure. Voluptatem alias numquam voluptas officia vitae quia nemo labore.</p>
+        <p>Tenetur, dolorum omnis. Similique nemo perspiciatis veniam magnam temporibus blanditiis non eligendi?</p>
+        <p>Sunt accusantium temporibus unde? Modi quae accusamus temporibus, commodi fuga perspiciatis vel?</p>
+        <p>Fugit suscipit provident, cumque nobis placeat facilis harum ut nihil impedit eligendi!</p>
+        <p>Eos illo, tempora soluta nulla voluptatem perspiciatis culpa animi quidem dolore ut!</p>
+        <p>Aliquam perferendis sed modi velit deserunt? Sunt dolore fugit tenetur perferendis eveniet?</p>
+        <p>Similique aperiam officiis assumenda. Tenetur ut pariatur dolorum non, similique voluptates odit.</p>
+        <p>Dolor aperiam esse quod, praesentium iusto nemo quas veniam facilis magnam illo.</p>
+        <p>Dolorem sapiente expedita sed facilis veritatis numquam ut, odit ea earum error?</p>
+    </div>
+    <div class="children">        
+
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, accusamus.</p>
+        <p>Deleniti autem hic nulla eligendi accusamus. Quas debitis natus libero.</p>
+        <p>Reprehenderit eaque velit ipsam dolores. Ab hic unde veritatis quae.</p>
+        <p>Quis nulla hic facilis sed, ducimus fuga quod dolorum quibusdam!</p>
+
+    </div>
+</div> -->
+
+
+<div  class="parent cluster">
+    <div>
+        <p>
+            Lorem
+        </p>
+    </div>
+
+    <div>
+        <p>
+            Quis
+        </p>
+    </div>
+    <div>
+        <p>
+            Vitae
+        </p>
+    </div>
+    <div>
+        <p>
+            Fugiat
+        </p>
+    </div>
+    <div>
+        <p>
+            Aliquam
+        </p>
+    </div>
+    <div>
+        <p>
+            Lusto
+        </p>
+    </div>
+    <div>
+        <p>
+            Repellendus
+        </p>
+    </div>
+    <div>
+        <p>
+            Molestaiae
+        </p>
+    </div>
+    <div>
+        <p>
+            Quam
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowout Stage Bracket</title>
+
+    <style>
+        .u-screen-reader-only {
+            position: absolute;
+            top: auto;
+            left: -999em;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            line-height: 1;
+            border-collapse: collapse;
+            border-spacing: 0;
+            quotes: none;
+            list-style: none;
+            -webkit-font-smoothing: antialiased;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .round {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .bms-brackets {
+            position: relative;
+        }
+
+        .eq-medium .bms-brackets {
+            overflow: hidden;
+        }
+
+        .bms-brackets__header {
+            padding-left: 3px;
+            text-transform: capitalize;
+            color: #323232;
+            font-family: Pill-Gothic-Bold, "Pill Gothic 300mg", Frank-Bold, Arial, Helvetica, sans-serif;
+            font-size: 30px;
+        }
+
+        .eq-medium .bms-brackets__header {
+            font-size: 36px;
+            margin-bottom: 34px;
+        }
+
+        .eq-large .bms-brackets__header {
+            margin-bottom: 34px;
+            font-size: 40px;
+        }
+
+        .bms-brackets__round-title {
+            font-family: Pill-Gothic-Bold, "Pill Gothic 300mg", Frank-Bold, Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: #323232;
+            text-align: center;
+        }
+
+        .bms-brackets__button {
+            display: block;
+            width: 100px;
+            border: 1px solid #d5d5d5;
+            background-color: transparent;
+            -ms-flex-item-align: center;
+            align-self: center;
+        }
+
+        .bms-brackets__button--active {
+            background-color: #B90A0A;
+        }
+
+        .bms-brackets__button--active:before,
+        .bms-brackets__button--active:after {
+            background-color: #B90A0A;
+        }
+
+        .eq-large .bms-brackets__round-container .bms-brackets__round {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-items: center;
+            height: 100%;
+        }
+
+        .bms-brackets__round-container:nth-child(1) .bms-brackets__round {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .bms-brackets__round-container:nth-child(1) .bms-brackets__button {
+            border: 0;
+        }
+
+        .bms-brackets__round-container:nth-child(1) .bms-brackets__button:first-of-type {
+            margin-bottom: 4px;
+        }
+
+        .bms-brackets__round-container:nth-child(1) .bms-brackets__button:before,
+        .bms-brackets__round-container:nth-child(1) .bms-brackets__button:after {
+            content: "";
+            height: 22px;
+            display: block;
+            border: 1px solid #d5d5d5;
+            background-color: transparent;
+        }
+
+        .bms-brackets__round-container:nth-child(2) .bms-brackets__round {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .bms-brackets__round-container:nth-child(2) .bms-brackets__button {
+            border: 0;
+        }
+
+        .bms-brackets__round-container:nth-child(2) .bms-brackets__button:first-of-type {
+            margin-bottom: 4px;
+        }
+
+        .bms-brackets__round-container:nth-child(2) .bms-brackets__button:before {
+            content: "";
+            height: 40px;
+            display: block;
+            border: 1px solid #d5d5d5;
+        }
+
+        .bms-brackets__round-container:nth-child(3) .bms-brackets__button {
+            height: 70px;
+        }
+
+        .bms-brackets__round-container:nth-child(4) .bms-brackets__button {
+            height: 60px;
+        }
+
+        .bms-brackets__round-container:nth-child(5) .bms-brackets__button {
+            height: 50px;
+        }
+
+        .bms-brackets__round-container:nth-child(6) .bms-brackets__button {
+            height: 40px;
+        }
+
+        .bms-brackets__round-container:nth-child(7) .bms-brackets__button {
+            height: 30px;
+        }
+
+        .bms-brackets__rounds {
+            margin-top: 34px;
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            font-family: Pill-Gothic-Bold, "Pill Gothic 300mg", Frank-Bold, Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+
+        .eq-medium .bms-brackets__rounds {
+            margin-bottom: 34px;
+        }
+
+        .eq-large .bms-brackets__rounds {
+            margin-bottom: 34px;
+        }
+
+        .bms-brackets__nav-round {
+            font-family: Pill-Gothic-Bold, "Pill Gothic 300mg", Frank-Bold, Arial, Helvetica, sans-serif;
+            color: #323232;
+            text-transform: uppercase;
+            display: none;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .eq-large .bms-brackets__nav-round {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .eq-large .bms-brackets__nav-round:nth-last-child(2),
+        .eq-large .bms-brackets__nav-round:last-of-type {
+            display: none;
+        }
+
+        .bms-brackets__nav-round--show {
+            display: -webkit-box !important;
+            display: -ms-flexbox !important;
+            display: flex !important;
+        }
+
+        .bms-brackets__nav-round--last.bms-brackets__nav-round:nth-last-child(2),
+        .bms-brackets__nav-round--last.bms-brackets__nav-round:last-of-type {
+            display: block;
+        }
+
+        .bms-brackets__normal-round {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+        }
+
+        .bms-brackets__reverse-nav {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            width: 100%;
+            margin-left: 10px;
+        }
+
+        .bms-brackets__reverse-nav .bms-brackets__nav-round:nth-child(2),
+        .bms-brackets__reverse-nav .bms-brackets__nav-round:first-of-type {
+            display: none;
+        }
+
+        .bms-brackets__reverse-nav .bms-brackets__nav-round:nth-last-child(2),
+        .bms-brackets__reverse-nav .bms-brackets__nav-round:last-of-type {
+            display: block;
+        }
+
+        .bms-brackets__navigation {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            margin-top: 8px;
+            margin-bottom: 34px;
+        }
+
+        .bms-brackets__dot {
+            width: 15px;
+            height: 15px;
+            margin: 0 15px 0 0;
+            border: solid 1px #707070;
+            border-radius: 50%;
+            cursor: pointer;
+            outline: 0;
+        }
+
+        .bms-brackets__dot--active {
+            pointer-events: none;
+            background-color: #B90A0A;
+        }
+    </style>
+
+
+    <style>
+        .u-screen-reader-only {
+            position: absolute;
+            top: auto;
+            left: -999em;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .eq-medium .bms-brackets__section {
+            margin-bottom: 50px;
+        }
+
+        .bms-brackets__section:nth-child(1) {
+            grid-area: sectionOne;
+        }
+
+        .bms-brackets__section:nth-child(2) {
+            grid-area: sectionTwo;
+        }
+
+        .bms-brackets__section:nth-child(3) {
+            grid-area: sectionThree;
+        }
+
+        .bms-brackets__section:nth-child(4) {
+            grid-area: sectionFour;
+        }
+
+        .bms-brackets__section:nth-child(5) {
+            grid-area: sectionChamp;
+        }
+
+        .eq-small .bms-brackets__section:nth-child(even) .bms-brackets__round:last-of-type .bms-brackets__match-container:after,
+        .eq-medium .bms-brackets__section:nth-child(even) .bms-brackets__round:last-of-type .bms-brackets__match-container:after {
+            top: 65px;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2),
+        .eq-large .bms-brackets__section:nth-child(4) {
+            margin-left: 8px;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__table-header,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__table-header {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container div:nth-child(2),
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container div:nth-child(2) {
+            z-index: 5;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container div:nth-child(3),
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container div:nth-child(3) {
+            z-index: 4;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container div:nth-child(4),
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container div:nth-child(4) {
+            z-index: 3;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__item:nth-child(odd)::after,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__item:nth-child(odd)::after {
+            position: absolute;
+            right: 57px;
+            content: "";
+            display: block;
+            height: 25%;
+            border-right: 2px solid #757575;
+            bottom: 50%;
+            z-index: 0;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:after,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:after {
+            position: absolute;
+            left: -60px;
+            z-index: 1;
+            content: "";
+            display: block;
+            width: 60px;
+            height: 0;
+            top: 15px;
+            border-top: 2px solid #757575;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:before,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:before {
+            position: absolute;
+            left: -60px;
+            z-index: 1;
+            content: "";
+            display: block;
+            height: 100%;
+            border-left: 2px solid #757575;
+            top: 15px;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__item:nth-child(even):after,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__item:nth-child(even):after {
+            position: absolute;
+            right: 57px;
+            content: "";
+            display: block;
+            height: 25%;
+            border-right: 2px solid #757575;
+            top: 50%;
+            z-index: -1;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__item:nth-child(even) .bms-brackets__match-container:after,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__item:nth-child(even) .bms-brackets__match-container:after {
+            position: absolute;
+            left: -60px;
+            z-index: 1;
+            content: "";
+            display: block;
+            width: 60px;
+            bottom: 15px;
+            border-top: 2px solid #757575;
+            height: 0;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__item:nth-child(even) .bms-brackets__match-container:before,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__item:nth-child(even) .bms-brackets__match-container:before {
+            position: absolute;
+            left: -60px;
+            z-index: 1;
+            content: "";
+            display: block;
+            height: 100%;
+            border-left: 2px solid #757575;
+            bottom: 15px;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container>div:first-of-type .bms-brackets__item:after,
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container>div:first-of-type .bms-brackets__item:before,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container>div:first-of-type .bms-brackets__item:after,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container>div:first-of-type .bms-brackets__item:before {
+            position: absolute;
+            right: 57px;
+            content: "";
+            display: block;
+            height: 25%;
+            border-right: 2px solid #757575;
+            bottom: 50%;
+            z-index: 0;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container>div:first-of-type .bms-brackets__item:after,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container>div:first-of-type .bms-brackets__item:after {
+            bottom: inherit;
+            top: 50%;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container>div:first-of-type .bms-brackets__item .bms-brackets__match-container:before,
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container>div:first-of-type .bms-brackets__item .bms-brackets__match-container:after,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container>div:first-of-type .bms-brackets__item .bms-brackets__match-container:before,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container>div:first-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            display: none;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container>div:first-of-type .bms-brackets__item .bms-brackets__match-container:after,
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container>div:first-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 100%;
+            border-right: 2px solid #757575;
+            z-index: -1;
+            width: 0;
+            right: inherit;
+            left: 42px;
+            bottom: -88px;
+            top: inherit;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(1) .bms-brackets__round-container>div:last-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            content: "";
+            display: block;
+            height: 100%;
+            border-right: 2px solid #757575;
+            z-index: -1;
+            width: 0;
+            right: 52px;
+            bottom: -82px;
+            top: inherit;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(2) .bms-brackets__round-container>div:first-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            content: "";
+            display: block;
+            height: 100%;
+            border-right: 2px solid #757575;
+            z-index: -1;
+            width: 0;
+            right: 44px;
+            bottom: -82px;
+            top: inherit;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(3) .bms-brackets__round-container>div:last-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            content: "";
+            display: block;
+            height: 100%;
+            border-right: 2px solid #757575;
+            z-index: -1;
+            width: 0;
+            right: 52px;
+            top: -82px;
+        }
+
+        .eq-large .bms-brackets__section:nth-child(4) .bms-brackets__round-container>div:first-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            content: "";
+            display: block;
+            height: 100%;
+            border-right: 2px solid #757575;
+            z-index: -1;
+            width: 0;
+            right: 36px;
+            top: -82px;
+        }
+
+        .bms-brackets__section--final-four .bms-brackets__round {
+            display: block;
+        }
+
+        .bms-brackets__section--final-four .bms-brackets__round:last-of-type .bms-brackets__match-container:after,
+        .bms-brackets__section--final-four .bms-brackets__round:last-of-type .bms-brackets__match-container:before {
+            display: none;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__list {
+            position: inherit;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item .bms-brackets__match-container:before,
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            display: none;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:first-of-type {
+            position: absolute;
+            bottom: -273px;
+            width: 150px;
+            left: 27%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:first-of-type:after,
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:first-of-type:before {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 126px;
+            border-right: 2px solid #757575;
+            top: -117px;
+            left: 38px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:first-of-type:after {
+            top: 41px;
+            height: 156px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:last-of-type {
+            position: absolute;
+            top: -210px;
+            width: 150px;
+            left: 27%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:last-of-type:after,
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:last-of-type:before {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 126px;
+            border-right: 2px solid #757575;
+            top: -118px;
+            left: 38px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:last-of-type:after {
+            top: 71px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list {
+            left: 60px;
+            top: 30px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item {
+            width: 270px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__venue {
+            display: inline;
+            margin-left: auto;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__match-container {
+            width: 100%;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__match-container:before,
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__match-container:after {
+            display: none;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__teams-container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__team-info {
+            width: 100%;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__team-info:last-of-type .bms-brackets__team {
+            -webkit-box-ordinal-group: 3;
+            -ms-flex-order: 2;
+            order: 2;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__team-info:last-of-type .bms-brackets__outcome {
+            margin-left: 0;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__team-info:last-of-type .bms-brackets__outcome:before {
+            content: "-";
+            position: absolute;
+            left: -12px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__team-info:last-of-type .bms-brackets__outcome--pre-game:before {
+            display: none;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__status {
+            font-size: 12px;
+            position: absolute;
+            left: 50%;
+            -webkit-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            transform: translate(-50%);
+            top: 48px;
+            margin-left: inherit;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__logo-container--empty {
+            width: 70px;
+            height: 70px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__seeds {
+            font-size: 14px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__name {
+            font-size: 18px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__team {
+            display: block;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__outcome {
+            font-size: 20px;
+        }
+
+        .eq-medium .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__list .bms-brackets__item .bms-brackets__event-title {
+            font-size: 22px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__list {
+            position: inherit;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item .bms-brackets__match-container:before,
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            display: none;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:first-of-type {
+            position: absolute;
+            top: -118%;
+            width: 150px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:first-of-type:after,
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:first-of-type:before {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 100%;
+            border-right: 2px solid #757575;
+            bottom: 82px;
+            top: -68px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:first-of-type:before {
+            left: 26px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:first-of-type:after {
+            right: 26px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:last-of-type {
+            position: absolute;
+            bottom: -116%;
+            width: 150px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:last-of-type:after,
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:last-of-type:before {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 100%;
+            border-right: 2px solid #757575;
+            top: 100%;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:last-of-type:before {
+            left: 26px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item:last-of-type:after {
+            right: 26px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:first-of-type .bms-brackets__item .bms-brackets__event-title span:last-of-type {
+            display: none;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item {
+            width: 270px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__venue {
+            display: inline;
+            margin-left: auto;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__match-container {
+            width: 100%;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__match-container:before,
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            display: none;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__teams-container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__team-info {
+            width: 100%;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__team-info:last-of-type .bms-brackets__team {
+            -webkit-box-ordinal-group: 3;
+            -ms-flex-order: 2;
+            order: 2;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__team-info:last-of-type .bms-brackets__outcome {
+            margin-left: 0;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__team-info:last-of-type .bms-brackets__outcome:before {
+            content: "-";
+            position: absolute;
+            left: -12px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__team-info:last-of-type .bms-brackets__outcome--pre-game:before {
+            display: none;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__status {
+            font-size: 12px;
+            position: absolute;
+            left: 50%;
+            -webkit-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            transform: translate(-50%);
+            top: 48px;
+            margin-left: inherit;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__logo-container--empty {
+            width: 70px;
+            height: 70px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__seeds {
+            font-size: 14px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__name {
+            font-size: 18px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__team {
+            display: block;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__outcome {
+            font-size: 20px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__event-title {
+            font-size: 22px;
+        }
+
+        .eq-large .bms-brackets__section--final-four .bms-brackets__round-container div:last-of-type .bms-brackets__item .bms-brackets__event-title span:first-of-type {
+            display: none;
+        }
+
+        .eq-small .bms-brackets__section--last-slide {
+            display: none;
+        }
+
+        .eq-small .bms-brackets__section--last-slide:last-of-type {
+            position: relative;
+            right: inherit;
+            top: inherit;
+            -webkit-transform: inherit;
+            -ms-transform: inherit;
+            transform: inherit;
+            display: block;
+        }
+
+        .eq-small .bms-brackets__section--before-last-slide .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:before,
+        .eq-medium .bms-brackets__section--before-last-slide .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:before {
+            height: 52px;
+        }
+
+        .eq-small .bms-brackets__section--final-four,
+        .eq-medium .bms-brackets__section--final-four {
+            display: none;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            -webkit-transform: translate(100%);
+            -ms-transform: translate(100%);
+            transform: translate(100%);
+        }
+
+        .eq-small .bms-brackets__section--final-four.bms-brackets__section--before-last-slide,
+        .eq-medium .bms-brackets__section--final-four.bms-brackets__section--before-last-slide {
+            display: block;
+        }
+
+        .eq-small .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four,
+        .eq-medium .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four {
+            z-index: 1;
+        }
+
+        .eq-small .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__round:last-of-type,
+        .eq-medium .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__round:last-of-type {
+            display: none;
+        }
+
+        .eq-small .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__match-container:before,
+        .eq-small .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__match-container:after,
+        .eq-medium .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__match-container:before,
+        .eq-medium .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__match-container:after {
+            display: none;
+        }
+
+        .eq-small .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__item:first-of-type,
+        .eq-medium .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__item:first-of-type {
+            position: absolute;
+            top: -85px;
+            left: 10px;
+        }
+
+        .eq-small .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__item:last-of-type,
+        .eq-medium .bms-brackets__section--final-four.bms-brackets__section--before-last-slide.bms-brackets__section--final-four .bms-brackets__item:last-of-type {
+            position: absolute;
+            bottom: -250px;
+            left: 10px;
+        }
+
+        .eq-small .bms-brackets__section--final-four.bms-brackets__section--last-slide,
+        .eq-medium .bms-brackets__section--final-four.bms-brackets__section--last-slide {
+            display: block;
+        }
+
+        .eq-large .bms-brackets__table {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "sectionOne sectionOne sectionTwo sectionTwo"". sectionChamp sectionChamp .""sectionThree sectionThree sectionFour sectionFour";
+        }
+
+        .bms-brackets__table-header {
+            text-transform: uppercase;
+            color: #323232;
+            font-family: Pill-Gothic-Bold, "Pill Gothic 300mg", Frank-Bold, Arial, Helvetica, sans-serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .bms-brackets__round-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .eq-medium .bms-brackets__round-container,
+        .eq-large .bms-brackets__round-container {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .bms-brackets__round-container>div:last-of-type .bms-brackets__item {
+            padding-right: 0;
+        }
+
+        .eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item:after,
+        .eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item:before,
+        .eq-large .bms-brackets__round-container>div:last-of-type .bms-brackets__item:after,
+        .eq-large .bms-brackets__round-container>div:last-of-type .bms-brackets__item:before {
+            position: absolute;
+            left: 51px;
+            content: "";
+            display: block;
+            height: 25%;
+            border-right: 2px solid #757575;
+            bottom: 50%;
+            z-index: 0;
+        }
+
+        .eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item:after,
+        .eq-large .bms-brackets__round-container>div:last-of-type .bms-brackets__item:after {
+            bottom: inherit;
+            top: 50%;
+        }
+
+        .eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item .bms-brackets__match-container:before,
+        .eq-large .bms-brackets__round-container>div:last-of-type .bms-brackets__item .bms-brackets__match-container:before {
+            display: none;
+        }
+
+        .eq-large .eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item .bms-brackets__match-container:after,
+        .eq-large .eq-large .bms-brackets__round-container>div:last-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            content: "";
+            display: block;
+            height: 100%;
+            border-right: 2px solid #757575;
+            z-index: -1;
+            width: 0;
+            right: 36px;
+            bottom: -88px;
+            top: inherit;
+        }
+
+        .eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item:after,
+        .eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item:before {
+            left: 58px;
+        }
+
+        .bms-brackets__event-info {
+            font-family: Arial, Helvetica, sans-serif;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            padding: 0 10px;
+            height: 10px;
+            text-transform: uppercase;
+            font-size: 10px;
+        }
+
+        .bms-brackets__status {
+            margin-left: auto;
+        }
+
+        .bms-brackets__status--in-progress {
+            color: #B90A0A;
+        }
+
+        .bms-brackets__venue {
+            display: none;
+        }
+
+        .bms-brackets__event-title {
+            font-family: Pill-Gothic-Bold, "Pill Gothic 300mg", Frank-Bold, Arial, Helvetica, sans-serif;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 8px;
+            width: 100%;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 14px;
+            background-color: #FFFFFF;
+        }
+
+        .bms-brackets__round {
+            display: none;
+        }
+
+        .eq-medium .bms-brackets__round,
+        .eq-large .bms-brackets__round {
+            display: block;
+        }
+
+        .bms-brackets__round--show {
+            display: block;
+        }
+
+        .bms-brackets__list {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+            min-height: 100%;
+            list-style: none;
+        }
+
+        .bms-brackets__item {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            position: relative;
+            margin-bottom: 10px;
+            padding-right: 8px;
+            width: 100%;
+        }
+
+        .eq-large .bms-brackets__item:nth-child(odd):after,
+        .eq-large .bms-brackets__item:nth-child(even):after {
+            position: absolute;
+            left: 51px;
+            content: "";
+            display: block;
+            height: 25%;
+            border-right: 2px solid #757575;
+            bottom: 50%;
+            z-index: 0;
+        }
+
+        .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:before,
+        .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:after,
+        .bms-brackets__item:nth-child(even) .bms-brackets__match-container:before,
+        .bms-brackets__item:nth-child(even) .bms-brackets__match-container:after {
+            position: absolute;
+            right: -94px;
+            z-index: 1;
+            content: "";
+            display: block;
+        }
+
+        .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:after,
+        .bms-brackets__item:nth-child(even) .bms-brackets__match-container:after {
+            width: 93px;
+            border-top: 2px solid #757575;
+        }
+
+        .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:before,
+        .bms-brackets__item:nth-child(even) .bms-brackets__match-container:before {
+            height: 100%;
+            border-left: 2px solid #757575;
+        }
+
+        .eq-large .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:before,
+        .eq-large .bms-brackets__item:nth-child(even) .bms-brackets__match-container:before {
+            right: -60px;
+        }
+
+        .eq-large .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:after,
+        .eq-large .bms-brackets__item:nth-child(even) .bms-brackets__match-container:after {
+            right: -60px;
+            width: 60px;
+        }
+
+        .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:before,
+        .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:after {
+            top: 15px;
+        }
+
+        .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:after {
+            height: 50%;
+        }
+
+        .bms-brackets__item:nth-child(odd) .bms-brackets__match-container:before {
+            height: 100%;
+            border-left: 2px solid #757575;
+        }
+
+        .bms-brackets__item:nth-child(even) .bms-brackets__match-container:before,
+        .bms-brackets__item:nth-child(even) .bms-brackets__match-container:after {
+            bottom: 15px;
+        }
+
+        .bms-brackets__match-container {
+            border: 1px solid #d5d5d5;
+            position: relative;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            z-index: 1;
+            background-color: #fff;
+            min-width: 150px;
+            width: 100%;
+        }
+
+        .bms-brackets__match-container--national-championship .bms-brackets__team-info {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .bms-brackets__team {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .bms-brackets__team-stats {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .eq-large .bms-brackets__team-stats {
+            white-space: nowrap;
+        }
+
+        .bms-brackets__seed {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        .bms-brackets__team-info {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 0 10px;
+            color: #323232;
+        }
+
+        .bms-brackets__team-info--loss {
+            color: #a3a3a3;
+        }
+
+        .bms-brackets__logo-container--empty {
+            width: 25px;
+            height: 25px;
+        }
+
+        .bms-brackets__team-name {
+            font-family: Pill-Gothic-Bold, "Pill Gothic 300mg", Frank-Bold, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .bms-brackets__outcome {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            margin-left: auto;
+        }
+
+        .bms-brackets__broadcast {
+            display: block;
+            margin-right: 10px;
+        }
+
+        .bms-brackets__broadcast--rdsinfo {
+            top: -2px;
+            position: relative;
+        }
+
+        .bms-brackets__link {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .bms-brackets--cbk .bms-brackets__logo-container {
+            margin-right: 5px;
+        }
+
+        .bms-brackets--euro.eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item:before,
+        .bms-brackets--euro.eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item:after,
+        .bms-brackets--fifa_wc.eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item:before,
+        .bms-brackets--fifa_wc.eq-medium .bms-brackets__round-container>div:last-of-type .bms-brackets__item:after {
+            left: 85px;
+        }
+
+        .bms-brackets--euro .bms-brackets__match-container,
+        .bms-brackets--fifa_wc .bms-brackets__match-container {
+            min-width: 150px;
+            width: 100%;
+        }
+
+        .bms-brackets--euro .bms-brackets__section:nth-child(1) .bms-brackets__round-container>div:last-of-type .bms-brackets__item .bms-brackets__match-container:after,
+        .bms-brackets--fifa_wc .bms-brackets__section:nth-child(1) .bms-brackets__round-container>div:last-of-type .bms-brackets__item .bms-brackets__match-container:after {
+            display: none;
+        }
+
+        .bms-brackets--euro .bms-brackets__table,
+        .bms-brackets--fifa_wc .bms-brackets__table {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .bms-brackets--euro .bms-brackets__logo-container,
+        .bms-brackets--fifa_wc .bms-brackets__logo-container {
+            width: 36px;
+            height: 21px;
+            padding-right: 5px;
+        }
+
+        .bms-brackets--euro .bms-brackets__teams-container .bms-brackets__team-info:first-child,
+        .bms-brackets--fifa_wc .bms-brackets__teams-container .bms-brackets__team-info:first-child {
+            padding-bottom: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="bms-brackets bms-brackets--fifa_wc eq-large">
+        <!---->
+        <div class="bms-brackets__header">
+            <h2 class="bms-translations">
+                FIFA World Cup™ Knockout Stage
+            </h2>
+        </div>
+        <div class="bms-brackets__rounds">
+            <div class="bms-brackets__normal-round"><span
+                    class="bms-brackets__nav-round bms-brackets__nav-round--show">Round of 16</span><span
+                    class="bms-brackets__nav-round bms-brackets__nav-round--show">Quarterfinal</span><span
+                    class="bms-brackets__nav-round bms-brackets__nav-round--show">Semifinal</span><span
+                    class="bms-brackets__nav-round bms-brackets__nav-round--show">Final</span></div>
+            <!---->
+        </div>
+        <!---->
+        <div class="bms-brackets__table">
+            <div class="bms-brackets__section bms-brackets__section--fifa_wc">
+                <!---->
+                <div class="bms-brackets__round-container">
+                    <div class="bms-brackets__round bms-brackets__round--show">
+                        <ul class="bms-brackets__list">
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--round-of 16"><a
+                                        href="/fifa-world-cup/event/united-states-netherlands-20221203?event_id=211262"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 3" class="bms-brackets__date">Dec 3
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Khalifa International Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=netherlands&amp;height=50&amp;width=50"
+                                                        alt="Netherlands"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/netherlands?competitor_id=44884"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Netherlands
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                3
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=united-states&amp;height=50&amp;width=50"
+                                                        alt="United States"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/united-states?competitor_id=44883"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        United States
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--round-of 16"><a
+                                        href="/fifa-world-cup/event/australia-argentina-20221203?event_id=211268"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 3" class="bms-brackets__date">Dec 3
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Ahmad bin Ali Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=argentina&amp;height=50&amp;width=50"
+                                                        alt="Argentina"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/argentina?competitor_id=40861"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Argentina
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                2
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=australia&amp;height=50&amp;width=50"
+                                                        alt="Australia"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/australia?competitor_id=40858"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Australia
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--round-of 16"><a
+                                        href="/fifa-world-cup/event/croatia-japan-20221205?event_id=211270"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 5" class="bms-brackets__date">Dec 5
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT (PK)
+                                        </span><span class="bms-brackets__venue">
+                                            Al Janoub Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=japan&amp;height=50&amp;width=50"
+                                                        alt="Japan"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/japan?competitor_id=40878"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Japan
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1(1)
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=croatia&amp;height=50&amp;width=50"
+                                                        alt="Croatia"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/croatia?competitor_id=40863"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Croatia
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1(3)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--round-of 16"><a
+                                        href="/fifa-world-cup/event/korea-republic-brazil-20221205?event_id=211272"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 5" class="bms-brackets__date">Dec 5
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Stadium 974
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=brazil&amp;height=50&amp;width=50"
+                                                        alt="Brazil"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/brazil?competitor_id=40866"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Brazil
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                4
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=korea-republic&amp;height=50&amp;width=50"
+                                                        alt="Korea Republic"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/korea-republic?competitor_id=40870"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Korea Republic
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--round-of 16"><a
+                                        href="/fifa-world-cup/event/senegal-england-20221204?event_id=211263"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 4" class="bms-brackets__date">Dec 4
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Al Bayt Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=england&amp;height=50&amp;width=50"
+                                                        alt="England"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/england?competitor_id=40875"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        England
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                3
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=senegal&amp;height=50&amp;width=50"
+                                                        alt="Senegal"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/senegal?competitor_id=40880"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Senegal
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--round-of 16"><a
+                                        href="/fifa-world-cup/event/poland-france-20221204?event_id=211267"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 4" class="bms-brackets__date">Dec 4
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Al Thumama Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=france&amp;height=50&amp;width=50"
+                                                        alt="France"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/france?competitor_id=40860"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        France
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                3
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=poland&amp;height=50&amp;width=50"
+                                                        alt="Poland"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/poland?competitor_id=40879"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Poland
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--round-of 16"><a
+                                        href="/fifa-world-cup/event/spain-morocco-20221206?event_id=211269"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 6" class="bms-brackets__date">Dec 6
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT (PK)
+                                        </span><span class="bms-brackets__venue">
+                                            Education City Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=morocco&amp;height=50&amp;width=50"
+                                                        alt="Morocco"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/morocco?competitor_id=40853"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Morocco
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                0(3)
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=spain&amp;height=50&amp;width=50"
+                                                        alt="Spain"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/spain?competitor_id=40856"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Spain
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--round-of 16"><a
+                                        href="/fifa-world-cup/event/switzerland-portugal-20221206?event_id=211271"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 6" class="bms-brackets__date">Dec 6
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Lusail Iconic Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=portugal&amp;height=50&amp;width=50"
+                                                        alt="Portugal"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/portugal?competitor_id=40855"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Portugal
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                6
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=switzerland&amp;height=50&amp;width=50"
+                                                        alt="Switzerland"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/switzerland?competitor_id=40867"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Switzerland
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bms-brackets__round bms-brackets__round--show">
+                        <ul class="bms-brackets__list">
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--quarterfinal">
+                                    <a href="/fifa-world-cup/event/argentina-netherlands-20221209?event_id=211274"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 9" class="bms-brackets__date">Dec 9
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT (PK)
+                                        </span><span class="bms-brackets__venue">
+                                            Lusail Iconic Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=netherlands&amp;height=50&amp;width=50"
+                                                        alt="Netherlands"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/netherlands?competitor_id=44884"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Netherlands
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                2(3)
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=argentina&amp;height=50&amp;width=50"
+                                                        alt="Argentina"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/argentina?competitor_id=40861"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Argentina
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                2(4)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--quarterfinal">
+                                    <a href="/fifa-world-cup/event/brazil-croatia-20221209?event_id=211326"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 9" class="bms-brackets__date">Dec 9
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT (PK)
+                                        </span><span class="bms-brackets__venue">
+                                            Education City Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=croatia&amp;height=50&amp;width=50"
+                                                        alt="Croatia"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/croatia?competitor_id=40863"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Croatia
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1(4)
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=brazil&amp;height=50&amp;width=50"
+                                                        alt="Brazil"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/brazil?competitor_id=40866"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Brazil
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1(2)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--quarterfinal">
+                                    <a href="/fifa-world-cup/event/france-england-20221210?event_id=211304"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 10" class="bms-brackets__date">Dec 10
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Al Bayt Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=england&amp;height=50&amp;width=50"
+                                                        alt="England"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/england?competitor_id=40875"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        England
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=france&amp;height=50&amp;width=50"
+                                                        alt="France"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/france?competitor_id=40860"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        France
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--quarterfinal">
+                                    <a href="/fifa-world-cup/event/portugal-morocco-20221210?event_id=211364"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 10" class="bms-brackets__date">Dec 10
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Al Thumama Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=morocco&amp;height=50&amp;width=50"
+                                                        alt="Morocco"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/morocco?competitor_id=40853"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Morocco
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                1
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=portugal&amp;height=50&amp;width=50"
+                                                        alt="Portugal"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/portugal?competitor_id=40855"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Portugal
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bms-brackets__round bms-brackets__round--show">
+                        <ul class="bms-brackets__list">
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--semifinal"><a
+                                        href="/fifa-world-cup/event/croatia-argentina-20221213?event_id=211365"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 13" class="bms-brackets__date">Dec 13
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Lusail Iconic Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=argentina&amp;height=50&amp;width=50"
+                                                        alt="Argentina"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/argentina?competitor_id=40861"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Argentina
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                3
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=croatia&amp;height=50&amp;width=50"
+                                                        alt="Croatia"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/croatia?competitor_id=40863"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Croatia
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--semifinal"><a
+                                        href="/fifa-world-cup/event/morocco-france-20221214?event_id=211366"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 14" class="bms-brackets__date">Dec 14
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT
+                                        </span><span class="bms-brackets__venue">
+                                            Al Bayt Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=france&amp;height=50&amp;width=50"
+                                                        alt="France"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/france?competitor_id=40860"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        France
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                2
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=morocco&amp;height=50&amp;width=50"
+                                                        alt="Morocco"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/morocco?competitor_id=40853"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Morocco
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bms-brackets__round bms-brackets__round--show">
+                        <ul class="bms-brackets__list">
+                            <li class="bms-brackets__item">
+                                <!---->
+                                <div class="bms-brackets__match-container bms-brackets__match-container--final"><a
+                                        href="/fifa-world-cup/event/france-argentina-20221218?event_id=211467"
+                                        class="bms-brackets__link"></a>
+                                    <div class="bms-brackets__event-info">
+                                        <!----><time datetime="Dec 18" class="bms-brackets__date">Dec 18
+                                            <!----></time><span class="bms-brackets__status">
+                                            FT (PK)
+                                        </span><span class="bms-brackets__venue">
+                                            Lusail Iconic Stadium
+                                        </span></div>
+                                    <div class="bms-brackets__teams-container">
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--winner">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=argentina&amp;height=50&amp;width=50"
+                                                        alt="Argentina"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/argentina?competitor_id=40861"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        Argentina
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                3(4)
+                                            </div>
+                                        </div>
+                                        <div class="bms-brackets__team-info bms-brackets__team-info--loss">
+                                            <div class="bms-brackets__team">
+                                                <figure
+                                                    class="bms-brackets__logo-container bms-image__container bms-image__container--competitor bms-image__container--no-background bms-image__container--is-country"
+                                                    style="--logo-size:50px;"><img
+                                                        src="https://tsnimages.tsn.ca/ImageProvider/AssetImage?seoid=france&amp;height=50&amp;width=50"
+                                                        alt="France"
+                                                        class="bms-image__image bms-image__image--image-loaded"><a
+                                                        href="/fifa-world-cup/team-page/france?competitor_id=40860"
+                                                        aria-label="View competitor bio" class="bms-image__link"></a>
+                                                </figure>
+                                                <div class="bms-brackets__team-stats">
+                                                    <!---->
+                                                    <div class="bms-brackets__team-name">
+                                                        France
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bms-brackets__outcome">
+                                                3(2)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
